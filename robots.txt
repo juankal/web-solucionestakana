@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://solucionestakana.com/sitemap.xml
+Sitemap: https://solucionestakana.space/sitemap.xml
