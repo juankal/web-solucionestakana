@@ -939,41 +939,41 @@
                 </div>
 
                 <form action="https://formspree.io/f/xpqdbjpq" method="POST" class="space-y-6">
-                    <input type="hidden" name="_next" value="index.html">
+                    <input type="hidden" name="_next" value="https://solucionestakana.space/">
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label
+                            <label for="campo-nombre"
                                 class="block text-xs uppercase tracking-wider text-slate-500 font-bold mb-2">Nombre</label>
-                            <input type="text" name="nombre"
+                            <input type="text" id="campo-nombre" name="nombre"
                                 class="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-cyan-500 focus:outline-none transition-colors"
                                 placeholder="Tu nombre" required>
                         </div>
                         <div>
-                            <label
+                            <label for="campo-empresa"
                                 class="block text-xs uppercase tracking-wider text-slate-500 font-bold mb-2">Empresa</label>
-                            <input type="text" name="empresa"
+                            <input type="text" id="campo-empresa" name="empresa"
                                 class="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-cyan-500 focus:outline-none transition-colors"
                                 placeholder="Nombre de tu negocio" required>
                         </div>
                     </div>
                     <div>
-                        <label class="block text-xs uppercase tracking-wider text-slate-500 font-bold mb-2">Teléfono /
+                        <label for="campo-telefono" class="block text-xs uppercase tracking-wider text-slate-500 font-bold mb-2">Teléfono /
                             WhatsApp</label>
-                        <input type="tel" name="telefono"
+                        <input type="tel" id="campo-telefono" name="telefono"
                             class="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-cyan-500 focus:outline-none transition-colors"
                             placeholder="+51 999 999 999" required>
                     </div>
                     <div>
-                        <label class="block text-xs uppercase tracking-wider text-slate-500 font-bold mb-2">¿En qué
+                        <label for="campo-servicio" class="block text-xs uppercase tracking-wider text-slate-500 font-bold mb-2">¿En qué
                             podemos ayudarte?</label>
-                        <select name="servicio"
+                        <select id="campo-servicio" name="servicio"
                             class="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-slate-300 focus:border-cyan-500 focus:outline-none transition-colors">
-                            <option>Soporte Técnico / Mantenimiento</option>
-                            <option>Servidores & Monitoreo Zabbix</option>
-                            <option>Venta de Software / Licencias</option>
-                            <option>Página Web / Tienda Online</option>
-                            <option>Chatbots & Automatización</option>
+                            <option value="soporte-tecnico">Soporte Técnico / Mantenimiento</option>
+                            <option value="servidores-zabbix">Servidores &amp; Monitoreo Zabbix</option>
+                            <option value="software-licencias">Venta de Software / Licencias</option>
+                            <option value="pagina-web">Página Web / Tienda Online</option>
+                            <option value="chatbots-automatizacion">Chatbots &amp; Automatización</option>
                         </select>
                     </div>
                     <button type="submit"
