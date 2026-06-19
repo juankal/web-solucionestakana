@@ -71,8 +71,11 @@ function draw() {
 }
 
 window.addEventListener('resize', resize);
-resize();
-draw();
+// Defer to next frame to prevent forced reflow during initial page load/parsing
+requestAnimationFrame(() => {
+    resize();
+    draw();
+});
 
 // Carousel Script
 const slides = document.querySelectorAll('.carousel-slide');
