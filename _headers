@@ -1,0 +1,20 @@
+# Custom Cache-Control headers for Cloudflare Pages static site
+
+# By default, revalidate assets
+/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Cache images for 1 year (immutable)
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/unnamed-5.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache compiled CSS for 1 year (immutable)
+/styles.css
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache JS for 1 year (immutable)
+/main.js
+  Cache-Control: public, max-age=31536000, immutable
