@@ -22,6 +22,7 @@
     <meta name="geo.placename" content="Tacna, Perú">
     <link rel="canonical" href="https://solucionestakana.space/">
     <link rel="icon" type="image/png" href="images/logo-takana.png">
+    <link rel="apple-touch-icon" href="images/logo-takana.png">
     <link rel="preload" fetchpriority="high" as="image" href="images/servers.webp" type="image/webp">
 
     <!-- Open Graph / Facebook -->
@@ -31,7 +32,7 @@
     <meta property="og:site_name" content="Soluciones Takana">
     <meta property="og:title" content="Soluciones Takana | Soporte TI y Desarrollo Web en Tacna">
     <meta property="og:description"
-        content="Tu departamento de sistemas externo en Tacna. Gestión de servidores, monitoreo Zabbix 24/7, desarrollo web profesional and automatización con IA.">
+        content="Tu departamento de sistemas externo en Tacna. Gestión de servidores, monitoreo Zabbix 24/7, desarrollo web profesional y automatización con IA.">
     <meta property="og:image" content="https://solucionestakana.space/unnamed-5.webp">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -324,6 +325,13 @@
                             </div>
                         </div>
 
+                        <!-- Carousel Indicators -->
+                        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 flex gap-2" id="carousel-dots">
+                            <button class="w-2.5 h-2.5 rounded-full transition-all cursor-pointer carousel-dot active" onclick="goToSlide(0)" aria-label="Slide 1"></button>
+                            <button class="w-2.5 h-2.5 rounded-full transition-all cursor-pointer carousel-dot" onclick="goToSlide(1)" aria-label="Slide 2"></button>
+                            <button class="w-2.5 h-2.5 rounded-full transition-all cursor-pointer carousel-dot" onclick="goToSlide(2)" aria-label="Slide 3"></button>
+                        </div>
+
                     </div>
                 </div>
 
@@ -522,7 +530,7 @@
                         ¿Qué es GLPI y por qué tu empresa lo necesita?
                     </h3>
                     <p class="text-slate-300 leading-relaxed">
-                        GLPI es la herramienta de código abierto líder a nivel mundial para la **Gestión de Servicios de TI (ITSM)** y **Gestión de Activos de TI (ITAM)**. 
+                        GLPI es la herramienta de código abierto líder a nivel mundial para la <strong>Gestión de Servicios de TI (ITSM)</strong> y <strong>Gestión de Activos de TI (ITAM)</strong>.
                     </p>
                     <p class="text-slate-300 leading-relaxed">
                         Nos encargamos de toda la instalación, configuración a medida y capacitación. Tu empresa contará con un portal profesional donde los empleados podrán reportar incidentes y tu departamento de sistemas podrá controlar y programar tareas eficientemente.
@@ -1244,12 +1252,26 @@
                     <form id="contacto-form" action="https://formspree.io/f/xpqdbjpq" method="POST" class="space-y-6">
                         <input type="hidden" name="_next" value="https://solucionestakana.space/">
 
-                        <div>
-                            <label for="campo-nombre"
-                                class="block text-xs uppercase tracking-wider text-slate-400 font-bold mb-2">Nombre</label>
-                            <input type="text" id="campo-nombre" name="nombre"
-                                class="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-cyan-500 focus:outline-none transition-colors"
-                                placeholder="Tu nombre completo" required>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="campo-nombre"
+                                    class="block text-xs uppercase tracking-wider text-slate-400 font-bold mb-2">Nombre</label>
+                                <input type="text" id="campo-nombre" name="nombre"
+                                    class="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-cyan-500 focus:outline-none transition-colors"
+                                    placeholder="Tu nombre completo" required>
+                            </div>
+                            <div>
+                                <label for="campo-email"
+                                    class="block text-xs uppercase tracking-wider text-slate-400 font-bold mb-2">Email</label>
+                                <input type="email" id="campo-email" name="email"
+                                    class="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-cyan-500 focus:outline-none transition-colors"
+                                    placeholder="tu@email.com">
+                            </div>
+                        </div>
+
+                        <!-- Honeypot anti-spam -->
+                        <div class="hidden" aria-hidden="true">
+                            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -1274,6 +1296,14 @@
                                     <option value="otro">Otro</option>
                                 </select>
                             </div>
+                        </div>
+
+                        <div>
+                            <label for="campo-mensaje"
+                                class="block text-xs uppercase tracking-wider text-slate-400 font-bold mb-2">Cuéntanos sobre tu proyecto <span class="normal-case font-normal text-slate-500">(opcional)</span></label>
+                            <textarea id="campo-mensaje" name="mensaje" rows="3"
+                                class="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-cyan-500 focus:outline-none transition-colors resize-none"
+                                placeholder="Describe brevemente lo que necesitas..."></textarea>
                         </div>
 
                         <button type="submit" id="btn-submit"
@@ -1323,7 +1353,7 @@
                 <!-- Col 1: Logo + Marca -->
                 <div>
                     <div class="flex items-center gap-3 mb-4">
-                        <img src="unnamed-5.webp" loading="lazy" width="48" height="48"
+                        <img src="images/logo-takana.png" loading="lazy" width="48" height="48"
                             onerror="this.src='https://placehold.co/100x100/0f172a/38bdf8?text=ST'" alt="Logo Soluciones Takana"
                             class="h-12 w-12 rounded-full">
                         <span class="font-tech font-bold text-white">SOLUCIONES TAKANA</span>
@@ -1407,7 +1437,7 @@
                         <img src="images/logo-takana.png" alt="Asistente Logo" class="w-7 h-7 object-contain rounded-full">
                     </div>
                     <div>
-                        <div class="text-white font-bold text-sm">Asistente Takana IA</div>
+                        <div class="text-white font-bold text-sm">Asistente Virtual Takana</div>
                         <div class="text-cyan-100 text-xs flex items-center gap-1">
                             <span class="w-1.5 h-1.5 rounded-full bg-green-400"></span> En línea
                         </div>

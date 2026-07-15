@@ -8,10 +8,11 @@ function scrollToContact() {
     document.getElementById('contacto').scrollIntoView({ behavior: 'smooth' });
 }
 
-// Particle Network Animation (Vanilla JS)
+// Particle Network Animation (Vanilla JS) — with reduced-motion support & visibility pause
 const canvas = document.getElementById('neural-network');
 const ctx = canvas.getContext('2d');
 let width, height, particles;
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 function resize() {
     width = window.innerWidth;
@@ -23,7 +24,7 @@ function resize() {
 
 function initParticles() {
     particles = [];
-    const count = Math.min(80, Math.floor(width / 25)); // Density optimized to prevent CPU drain
+    const count = Math.min(50, Math.floor(width / 30));
     for (let i = 0; i < count; i++) {
         particles.push({
             x: Math.random() * width,
@@ -35,9 +36,12 @@ function initParticles() {
     }
 }
 
+let animating = true;
+
 function draw() {
+    if (!animating) return;
     ctx.clearRect(0, 0, width, height);
-    ctx.fillStyle = '#38bdf8'; // Cyan-400
+    ctx.fillStyle = '#38bdf8';
     ctx.strokeStyle = 'rgba(56, 189, 248, 0.15)';
 
     for (let i = 0; i < particles.length; i++) {
@@ -70,25 +74,75 @@ function draw() {
     requestAnimationFrame(draw);
 }
 
-window.addEventListener('resize', resize);
-// Defer to next frame to prevent forced reflow during initial page load/parsing
-requestAnimationFrame(() => {
-    resize();
-    draw();
+// Pause animation when tab is not visible
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+        animating = false;
+    } else if (!prefersReducedMotion) {
+        animating = true;
+        draw();
+    }
 });
 
-// Carousel Script
-const slides = document.querySelectorAll('.carousel-slide');
-let currentSlide = 0;
-const slideInterval = 5000; // Cambio cada 5 segundos
+window.addEventListener('resize', resize);
 
-function nextSlide() {
-    slides[currentSlide].classList.remove('active');
-    currentSlide = (currentSlide + 1) % slides.length;
-    slides[currentSlide].classList.add('active');
+if (!prefersReducedMotion) {
+    requestAnimationFrame(() => {
+        resize();
+        draw();
+    });
+} else {
+    // Draw a single static frame for reduced-motion users
+    requestAnimationFrame(() => {
+        resize();
+        animating = true;
+        draw();
+        animating = false;
+    });
 }
 
-setInterval(nextSlide, slideInterval);
+// Carousel Script — with dots, hover pause, and manual navigation
+const slides = document.querySelectorAll('.carousel-slide');
+const dots = document.querySelectorAll('.carousel-dot');
+let currentSlide = 0;
+const slideIntervalMs = 5000;
+let carouselTimer = null;
+const heroCarousel = document.getElementById('hero-carousel');
+
+function updateSlide(index) {
+    slides[currentSlide].classList.remove('active');
+    if (dots[currentSlide]) dots[currentSlide].classList.remove('active');
+    currentSlide = index;
+    slides[currentSlide].classList.add('active');
+    if (dots[currentSlide]) dots[currentSlide].classList.add('active');
+}
+
+function nextSlide() {
+    updateSlide((currentSlide + 1) % slides.length);
+}
+
+function goToSlide(index) {
+    if (index === currentSlide) return;
+    updateSlide(index);
+    resetCarouselTimer();
+}
+
+function startCarouselTimer() {
+    carouselTimer = setInterval(nextSlide, slideIntervalMs);
+}
+
+function resetCarouselTimer() {
+    clearInterval(carouselTimer);
+    startCarouselTimer();
+}
+
+startCarouselTimer();
+
+// Pause carousel on hover
+if (heroCarousel) {
+    heroCarousel.addEventListener('mouseenter', () => clearInterval(carouselTimer));
+    heroCarousel.addEventListener('mouseleave', () => startCarouselTimer());
+}
 
 // Formulario de Contacto Handler (AJAX con Fetch)
 const contactForm = document.getElementById('contacto-form');
@@ -440,6 +494,7 @@ window.handleChatSubmit = handleChatSubmit;
 window.resetearFormulario = resetearFormulario;
 window.mostrarFormulario = mostrarFormulario;
 window.dismissWelcomeBubble = dismissWelcomeBubble;
+window.goToSlide = goToSlide;
 
 // Close chat drawer when clicking outside
 document.addEventListener('click', function(e) {
@@ -448,6 +503,56 @@ document.addEventListener('click', function(e) {
     if (!chatDrawer.contains(e.target) && !btn.contains(e.target)) {
         chatDrawer.classList.add('hidden');
     }
+});
+
+// ==================== NAV SCROLL EFFECT ====================
+const navElement = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        navElement.classList.add('nav-scrolled');
+    } else {
+        navElement.classList.remove('nav-scrolled');
+    }
+}, { passive: true });
+
+// ==================== MOBILE MENU AUTO-CLOSE ON SCROLL ====================
+window.addEventListener('scroll', () => {
+    const menu = document.getElementById('mobile-menu');
+    if (menu && !menu.classList.contains('hidden')) {
+        menu.classList.add('hidden');
+    }
+}, { passive: true });
+
+// ==================== SCROLL REVEAL ANIMATIONS ====================
+document.addEventListener('DOMContentLoaded', () => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const revealTargets = document.querySelectorAll(
+        '.glass-card, .portfolio-card, .testimonial-card, .web-type-card'
+    );
+
+    revealTargets.forEach(el => {
+        el.classList.add('reveal');
+    });
+
+    // Calculate stagger delays based on position within parent grid
+    revealTargets.forEach(el => {
+        const parent = el.parentElement;
+        const siblings = Array.from(parent.children).filter(c => c.classList.contains('reveal'));
+        const index = siblings.indexOf(el);
+        el.style.transitionDelay = `${index * 0.1}s`;
+    });
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    revealTargets.forEach(el => revealObserver.observe(el));
 });
 
 
