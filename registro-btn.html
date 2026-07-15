@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botón de Registro | Soluciones Takana</title>
+    <meta name="description" content="Componente de botón de registro de usuarios para Soluciones Takana.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/bold/style.css">
+    <style>
+        /* ============================================
+           DESIGN TOKENS — Soluciones Takana palette
+           ============================================ */
+        :root {
+            --bg-deep: #020617;
+            --bg-surface: rgba(15, 23, 42, 0.7);
+            --border-subtle: rgba(255, 255, 255, 0.05);
+            --neon-cyan: #06b6d4;
+            --neon-blue: #3b82f6;
+            --neon-purple: #8b5cf6;
+            --neon-green: #10b981;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --font-tech: 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        /* ============================================
+           BASE RESET
+           ============================================ */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            padding: 2rem;
+        }
+
+        /* ============================================
+           AMBIENT BACKGROUND GLOW
+           ============================================ */
+        body::before,
+        body::after {
+            content: '';
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+            filter: blur(120px);
+        }
+
+        body::before {
+            width: 500px;
+            height: 500px;
+            background: rgba(6, 182, 212, 0.08);
+            top: -100px;
+            right: -100px;
+        }
+
+        body::after {
+            width: 600px;
+            height: 600px;
+            background: rgba(59, 130, 246, 0.06);
+            bottom: -150px;
+            left: -150px;
+        }
+
+        /* ============================================
+           DEMO LAYOUT
+           ============================================ */
+        .demo-container {
+            max-width: 720px;
+            width: 100%;
+        }
+
+        .demo-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .demo-header h1 {
+            font-family: var(--font-tech);
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(to right, #22d3ee, #818cf8);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .demo-header p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .variant-section {
+            margin-bottom: 3rem;
+        }
+
+        .variant-label {
+            font-family: var(--font-tech);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--neon-cyan);
+            margin-bottom: 1.25rem;
+            padding-left: 0.25rem;
+        }
+
+        .button-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.25rem;
+            align-items: center;
+        }
+
+        /* ============================================
+           REGISTRATION BUTTON — Core Styles
+           ============================================ */
+        .btn-register {
+            /* Layout */
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.625rem;
+            padding: 0.875rem 2rem;
+            min-width: 200px;
+
+            /* Typography */
+            font-family: var(--font-tech);
+            font-size: 0.9375rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #ffffff;
+
+            /* Visual */
+            background: linear-gradient(135deg, var(--neon-cyan) 0%, var(--neon-blue) 100%);
+            border: none;
+            cursor: pointer;
+            overflow: hidden;
+            z-index: 1;
+
+            /* Animation */
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+                        box-shadow 0.3s ease;
+        }
+
+        /* Animated shimmer overlay */
+        .btn-register::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0.15) 50%,
+                transparent 100%
+            );
+            z-index: 2;
+            transition: left 0.6s ease;
+        }
+
+        /* Neon glow border (pseudo-element) */
+        .btn-register::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: inherit;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple), var(--neon-blue));
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            filter: blur(8px);
+        }
+
+        /* Icon inside button */
+        .btn-register .btn-icon {
+            font-size: 1.25rem;
+            transition: transform 0.3s ease;
+        }
+
+        /* Ripple container */
+        .btn-register .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.35);
+            transform: scale(0);
+            animation: ripple-effect 0.6s ease-out forwards;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        @keyframes ripple-effect {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* ============================================
+           HOVER STATE
+           ============================================ */
+        .btn-register:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow:
+                0 0 20px rgba(6, 182, 212, 0.4),
+                0 0 60px rgba(6, 182, 212, 0.15),
+                0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn-register:hover::before {
+            left: 100%;
+        }
+
+        .btn-register:hover::after {
+            opacity: 1;
+        }
+
+        .btn-register:hover .btn-icon {
+            transform: translateX(2px) scale(1.1);
+        }
+
+        /* ============================================
+           FOCUS STATE (Keyboard accessibility)
+           ============================================ */
+        .btn-register:focus-visible {
+            outline: 2px solid #22d3ee;
+            outline-offset: 3px;
+            box-shadow:
+                0 0 0 4px rgba(6, 182, 212, 0.25),
+                0 0 20px rgba(6, 182, 212, 0.3);
+        }
+
+        /* ============================================
+           ACTIVE / PRESSED STATE
+           ============================================ */
+        .btn-register:active {
+            transform: translateY(0) scale(0.98);
+            box-shadow:
+                0 0 10px rgba(6, 182, 212, 0.3),
+                0 2px 8px rgba(0, 0, 0, 0.4);
+            transition-duration: 0.1s;
+        }
+
+        /* ============================================
+           VARIANT: Rounded (pill shape)
+           ============================================ */
+        .btn-register--rounded {
+            border-radius: 9999px;
+        }
+
+        /* ============================================
+           VARIANT: Sharp (no border-radius)
+           ============================================ */
+        .btn-register--sharp {
+            border-radius: 0;
+        }
+
+        /* Sharp variant gets a cyberpunk "cut corner" clip-path */
+        .btn-register--sharp {
+            clip-path: polygon(
+                0 0,
+                calc(100% - 16px) 0,
+                100% 16px,
+                100% 100%,
+                16px 100%,
+                0 calc(100% - 16px)
+            );
+        }
+
+        /* ============================================
+           SIZE VARIANTS
+           ============================================ */
+        .btn-register--sm {
+            padding: 0.625rem 1.5rem;
+            font-size: 0.8125rem;
+            min-width: 160px;
+            gap: 0.5rem;
+        }
+
+        .btn-register--sm .btn-icon {
+            font-size: 1.1rem;
+        }
+
+        .btn-register--lg {
+            padding: 1.125rem 2.75rem;
+            font-size: 1.0625rem;
+            min-width: 240px;
+        }
+
+        .btn-register--lg .btn-icon {
+            font-size: 1.375rem;
+        }
+
+        /* ============================================
+           COLOR VARIANT: Green
+           ============================================ */
+        .btn-register--green {
+            background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+        }
+
+        .btn-register--green::after {
+            background: linear-gradient(135deg, #10b981, #06b6d4, #10b981);
+        }
+
+        .btn-register--green:hover {
+            box-shadow:
+                0 0 20px rgba(16, 185, 129, 0.4),
+                0 0 60px rgba(16, 185, 129, 0.15),
+                0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn-register--green:focus-visible {
+            outline-color: #34d399;
+            box-shadow:
+                0 0 0 4px rgba(16, 185, 129, 0.25),
+                0 0 20px rgba(16, 185, 129, 0.3);
+        }
+
+        /* ============================================
+           COLOR VARIANT: Purple
+           ============================================ */
+        .btn-register--purple {
+            background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+        }
+
+        .btn-register--purple::after {
+            background: linear-gradient(135deg, #8b5cf6, #ec4899, #8b5cf6);
+        }
+
+        .btn-register--purple:hover {
+            box-shadow:
+                0 0 20px rgba(139, 92, 246, 0.4),
+                0 0 60px rgba(139, 92, 246, 0.15),
+                0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn-register--purple:focus-visible {
+            outline-color: #a78bfa;
+            box-shadow:
+                0 0 0 4px rgba(139, 92, 246, 0.25),
+                0 0 20px rgba(139, 92, 246, 0.3);
+        }
+
+        /* ============================================
+           GLASS / OUTLINE VARIANT
+           ============================================ */
+        .btn-register--glass {
+            background: rgba(15, 23, 42, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+        }
+
+        .btn-register--glass:hover {
+            background: rgba(6, 182, 212, 0.1);
+            border-color: rgba(6, 182, 212, 0.6);
+            box-shadow:
+                0 0 20px rgba(6, 182, 212, 0.2),
+                0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-register--glass::after {
+            display: none;
+        }
+
+        /* ============================================
+           PULSE ANIMATION (attention grabber)
+           ============================================ */
+        .btn-register--pulse {
+            animation: neon-pulse 2.5s ease-in-out infinite;
+        }
+
+        .btn-register--pulse:hover {
+            animation: none;
+        }
+
+        @keyframes neon-pulse {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.4),
+                            0 4px 16px rgba(0, 0, 0, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 0 10px rgba(6, 182, 212, 0),
+                            0 4px 16px rgba(0, 0, 0, 0.3);
+            }
+        }
+
+        /* ============================================
+           SEPARATOR
+           ============================================ */
+        .separator {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(6, 182, 212, 0.2), transparent);
+            margin: 1rem 0;
+        }
+
+        /* ============================================
+           CODE SNIPPET DISPLAY
+           ============================================ */
+        .code-block {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .code-block pre {
+            font-family: 'Fira Code', 'SF Mono', 'Consolas', monospace;
+            font-size: 0.8125rem;
+            line-height: 1.7;
+            color: #e2e8f0;
+            white-space: pre;
+            tab-size: 2;
+        }
+
+        .code-block .tag { color: #f472b6; }
+        .code-block .attr { color: #38bdf8; }
+        .code-block .val { color: #a78bfa; }
+        .code-block .text { color: #fbbf24; }
+        .code-block .comment { color: #475569; font-style: italic; }
+
+        .code-label {
+            font-family: var(--font-tech);
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .code-label::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--neon-green);
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 0.75rem;
+            right: 0.75rem;
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            color: var(--neon-cyan);
+            padding: 0.375rem 0.75rem;
+            border-radius: 0.375rem;
+            font-family: var(--font-tech);
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .copy-btn:hover {
+            background: rgba(6, 182, 212, 0.2);
+            border-color: rgba(6, 182, 212, 0.5);
+        }
+
+        .copy-btn:focus-visible {
+            outline: 2px solid var(--neon-cyan);
+            outline-offset: 2px;
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 640px) {
+            .demo-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .button-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn-register {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="demo-container">
+        <header class="demo-header">
+            <h1>Botón de Registro de Usuarios</h1>
+            <p>Componente reutilizable con estados interactivos y accesibilidad completa</p>
+        </header>
+
+        <!-- ============================
+             VARIANTE 1: Bordes Redondeados
+             ============================ -->
+        <section class="variant-section">
+            <div class="variant-label">Variante 1 — Bordes redondeados (Pill)</div>
+            <div class="button-row">
+                <!-- Primary Rounded -->
+                <button
+                    type="button"
+                    id="btn-register-rounded"
+                    class="btn-register btn-register--rounded btn-register--pulse"
+                    aria-label="Crear nueva cuenta de usuario"
+                    role="button"
+                    onclick="handleRegister(this, event)"
+                >
+                    <i class="ph-bold ph-user-plus btn-icon" aria-hidden="true"></i>
+                    Crear Cuenta
+                </button>
+
+                <!-- Green Rounded -->
+                <button
+                    type="button"
+                    id="btn-register-rounded-green"
+                    class="btn-register btn-register--rounded btn-register--green"
+                    aria-label="Registrarse gratis"
+                    role="button"
+                    onclick="handleRegister(this, event)"
+                >
+                    <i class="ph-bold ph-rocket-launch btn-icon" aria-hidden="true"></i>
+                    Registrarse Gratis
+                </button>
+
+                <!-- Glass Outline Rounded -->
+                <button
+                    type="button"
+                    id="btn-register-rounded-glass"
+                    class="btn-register btn-register--rounded btn-register--glass"
+                    aria-label="Unirse ahora"
+                    role="button"
+                    onclick="handleRegister(this, event)"
+                >
+                    <i class="ph-bold ph-sign-in btn-icon" aria-hidden="true"></i>
+                    Unirse Ahora
+                </button>
+            </div>
+        </section>
+
+        <div class="separator"></div>
+
+        <!-- ============================
+             VARIANTE 2: Bordes Rectos
+             ============================ -->
+        <section class="variant-section">
+            <div class="variant-label">Variante 2 — Bordes rectos (Cyberpunk cut)</div>
+            <div class="button-row">
+                <!-- Primary Sharp -->
+                <button
+                    type="button"
+                    id="btn-register-sharp"
+                    class="btn-register btn-register--sharp btn-register--pulse"
+                    aria-label="Crear nueva cuenta de usuario"
+                    role="button"
+                    onclick="handleRegister(this, event)"
+                >
+                    <i class="ph-bold ph-user-plus btn-icon" aria-hidden="true"></i>
+                    Crear Cuenta
+                </button>
+
+                <!-- Purple Sharp -->
+                <button
+                    type="button"
+                    id="btn-register-sharp-purple"
+                    class="btn-register btn-register--sharp btn-register--purple"
+                    aria-label="Comenzar registro"
+                    role="button"
+                    onclick="handleRegister(this, event)"
+                >
+                    <i class="ph-bold ph-lightning btn-icon" aria-hidden="true"></i>
+                    Comenzar Ahora
+                </button>
+
+                <!-- Glass Outline Sharp -->
+                <button
+                    type="button"
+                    id="btn-register-sharp-glass"
+                    class="btn-register btn-register--sharp btn-register--glass"
+                    aria-label="Unirse ahora"
+                    role="button"
+                    onclick="handleRegister(this, event)"
+                >
+                    <i class="ph-bold ph-sign-in btn-icon" aria-hidden="true"></i>
+                    Unirse Ahora
+                </button>
+            </div>
+        </section>
+
+        <div class="separator"></div>
+
+        <!-- ============================
+             TAMAÑOS
+             ============================ -->
+        <section class="variant-section">
+            <div class="variant-label">Tamaños disponibles</div>
+            <div class="button-row" style="align-items: flex-end;">
+                <button
+                    type="button"
+                    id="btn-register-sm"
+                    class="btn-register btn-register--rounded btn-register--sm"
+                    aria-label="Registro rápido"
+                    role="button"
+                    onclick="handleRegister(this, event)"
+                >
+                    <i class="ph-bold ph-user-plus btn-icon" aria-hidden="true"></i>
+                    Registro
+                </button>
+
+                <button
+                    type="button"
+                    id="btn-register-md"
+                    class="btn-register btn-register--rounded"
+                    aria-label="Crear nueva cuenta"
+                    role="button"
+                    onclick="handleRegister(this, event)"
+                >
+                    <i class="ph-bold ph-user-plus btn-icon" aria-hidden="true"></i>
+                    Crear Cuenta
+                </button>
+
+                <button
+                    type="button"
+                    id="btn-register-lg"
+                    class="btn-register btn-register--rounded btn-register--lg btn-register--green"
+                    aria-label="Registrarse ahora gratis"
+                    role="button"
+                    onclick="handleRegister(this, event)"
+                >
+                    <i class="ph-bold ph-rocket-launch btn-icon" aria-hidden="true"></i>
+                    Registrarse Ahora
+                </button>
+            </div>
+        </section>
+
+        <div class="separator"></div>
+
+        <!-- ============================
+             CÓDIGO PARA COPIAR
+             ============================ -->
+        <section class="variant-section">
+            <div class="code-label">Código HTML — Listo para copiar</div>
+            <div class="code-block" id="code-rounded">
+                <button class="copy-btn" onclick="copyCode('snippet-rounded')" aria-label="Copiar código del botón redondeado">Copiar</button>
+                <pre id="snippet-rounded"><span class="comment">&lt;!-- Botón Registro: Redondeado --&gt;</span>
+<span class="tag">&lt;button</span>
+    <span class="attr">type</span>=<span class="val">"button"</span>
+    <span class="attr">id</span>=<span class="val">"btn-register"</span>
+    <span class="attr">class</span>=<span class="val">"btn-register btn-register--rounded btn-register--pulse"</span>
+    <span class="attr">aria-label</span>=<span class="val">"Crear nueva cuenta de usuario"</span>
+    <span class="attr">role</span>=<span class="val">"button"</span>
+<span class="tag">&gt;</span>
+    <span class="tag">&lt;i</span> <span class="attr">class</span>=<span class="val">"ph-bold ph-user-plus btn-icon"</span> <span class="attr">aria-hidden</span>=<span class="val">"true"</span><span class="tag">&gt;&lt;/i&gt;</span>
+    <span class="text">Crear Cuenta</span>
+<span class="tag">&lt;/button&gt;</span></pre>
+            </div>
+
+            <div class="code-block" id="code-sharp" style="margin-top: 1rem;">
+                <button class="copy-btn" onclick="copyCode('snippet-sharp')" aria-label="Copiar código del botón recto">Copiar</button>
+                <pre id="snippet-sharp"><span class="comment">&lt;!-- Botón Registro: Cyberpunk (bordes rectos) --&gt;</span>
+<span class="tag">&lt;button</span>
+    <span class="attr">type</span>=<span class="val">"button"</span>
+    <span class="attr">id</span>=<span class="val">"btn-register"</span>
+    <span class="attr">class</span>=<span class="val">"btn-register btn-register--sharp btn-register--pulse"</span>
+    <span class="attr">aria-label</span>=<span class="val">"Crear nueva cuenta de usuario"</span>
+    <span class="attr">role</span>=<span class="val">"button"</span>
+<span class="tag">&gt;</span>
+    <span class="tag">&lt;i</span> <span class="attr">class</span>=<span class="val">"ph-bold ph-user-plus btn-icon"</span> <span class="attr">aria-hidden</span>=<span class="val">"true"</span><span class="tag">&gt;&lt;/i&gt;</span>
+    <span class="text">Crear Cuenta</span>
+<span class="tag">&lt;/button&gt;</span></pre>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        /**
+         * Ripple effect on button click
+         */
+        function handleRegister(btn, event) {
+            // Create ripple
+            const ripple = document.createElement('span');
+            ripple.classList.add('ripple');
+            const rect = btn.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = (event.clientX - rect.left - size / 2) + 'px';
+            ripple.style.top = (event.clientY - rect.top - size / 2) + 'px';
+            btn.appendChild(ripple);
+
+            ripple.addEventListener('animationend', () => {
+                ripple.remove();
+            });
+
+            // Visual feedback — simulate registration action
+            console.log(`[Registro] Botón "${btn.textContent.trim()}" activado`);
+        }
+
+        /**
+         * Copy code snippet to clipboard
+         */
+        function copyCode(snippetId) {
+            const snippet = document.getElementById(snippetId);
+            const text = snippet.innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = snippet.parentElement.querySelector('.copy-btn');
+                const originalText = btn.textContent;
+                btn.textContent = '✓ Copiado';
+                btn.style.color = '#34d399';
+                btn.style.borderColor = 'rgba(16, 185, 129, 0.5)';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.color = '';
+                    btn.style.borderColor = '';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+
+</html>

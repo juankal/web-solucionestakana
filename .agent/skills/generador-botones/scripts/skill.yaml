@@ -1,0 +1,11 @@
+name: generador-botones
+version: 1.0.0
+description: Genera componentes de botones modernos con estilos CSS optimizados.
+triggers:
+  - "crea un boton"
+  - "disena un boton"
+  - "componente boton"
+instructions: instructions.md
+tools:
+  - name: validate_button
+    script: scripts/validate.py
