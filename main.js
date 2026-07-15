@@ -161,6 +161,7 @@ const chatFlow = {
         bot: "¡Hola! Bienvenido a Soluciones Takana. Somos tu departamento de sistemas externo. ¿En qué tipo de solución estás interesado hoy?",
         options: [
             { text: "Servidores & Infraestructura", next: "infraestructura" },
+            { text: "Mesa de Ayuda & Activos (GLPI)", next: "glpi" },
             { text: "Diseño & Desarrollo Web", next: "web" },
             { text: "Chatbots & Automatización IA", next: "automatizacion" },
             { text: "Ver Casos de Éxito", next: "casos" }
@@ -171,6 +172,21 @@ const chatFlow = {
         options: [
             { text: "Solicitar Soporte Técnico", next: "conversion_soporte" },
             { text: "Volver al inicio", next: "inicio" }
+        ]
+    },
+    glpi: {
+        bot: "Implementamos GLPI para centralizar la gestión de tus activos (computadoras, servidores, software, licencias) y automatizar el soporte técnico a tus usuarios mediante una mesa de ayuda (Ticketing) profesional y sin costes recurrentes de licencia.",
+        options: [
+            { text: "Cotizar Implementación GLPI", next: "conversion_glpi" },
+            { text: "Volver al inicio", next: "inicio" }
+        ]
+    },
+    conversion_glpi: {
+        bot: "¡Excelente decisión! Te enviaremos una propuesta personalizada de GLPI en menos de 24 horas. Puedes elegir cómo continuar para coordinar los detalles:",
+        options: [
+            { text: "📱 Hablar por WhatsApp", action: "whatsapp", data: "Hola, me interesa la implementación de GLPI para mi empresa." },
+            { text: "✉️ Ir al Formulario de Contacto", action: "scroll", data: "contacto" },
+            { text: "↩️ Volver al inicio", next: "inicio" }
         ]
     },
     web: {
@@ -403,6 +419,8 @@ function handleChatSubmit(e) {
         const lowerText = text.toLowerCase();
         if (lowerText.includes('servidor') || lowerText.includes('infraestructura') || lowerText.includes('ti') || lowerText.includes('zabbix') || lowerText.includes('soporte')) {
             goToState('infraestructura');
+        } else if (lowerText.includes('glpi') || lowerText.includes('mesa') || lowerText.includes('ticket') || lowerText.includes('inventario') || lowerText.includes('activo')) {
+            goToState('glpi');
         } else if (lowerText.includes('web') || lowerText.includes('diseño') || lowerText.includes('página') || lowerText.includes('pagina') || lowerText.includes('tienda') || lowerText.includes('ecommerce')) {
             goToState('web');
         } else if (lowerText.includes('ia') || lowerText.includes('chatbot') || lowerText.includes('bot') || lowerText.includes('automatiza')) {

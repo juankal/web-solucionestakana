@@ -145,6 +145,7 @@
 
                 <div class="hidden lg:flex items-center space-x-8">
                     <a href="#servicios-ti" class="text-sm font-medium hover:text-cyan-400 transition-colors">Servicios TI</a>
+                    <a href="#glpi" class="text-sm font-medium hover:text-cyan-400 transition-colors">GLPI Mesa de Ayuda</a>
                     <a href="#servicios-digitales" class="text-sm font-medium hover:text-green-400 transition-colors">Digitales</a>
                     <a href="#paginas-web" class="text-sm font-medium hover:text-green-400 transition-colors">Páginas Web</a>
                     <a href="#nosotros" class="text-sm font-medium hover:text-cyan-400 transition-colors">Empresa</a>
@@ -162,6 +163,8 @@
         <div id="mobile-menu" class="hidden lg:hidden bg-slate-900 border-b border-slate-800 p-4 absolute w-full z-50">
             <a href="#servicios-ti" class="block py-3 text-slate-300 hover:text-cyan-400 border-b border-slate-800"
                 onclick="toggleMenu()">Servicios TI</a>
+            <a href="#glpi" class="block py-3 text-slate-300 hover:text-cyan-400 border-b border-slate-800"
+                onclick="toggleMenu()">GLPI Mesa de Ayuda</a>
             <a href="#servicios-digitales" class="block py-3 text-slate-300 hover:text-green-400 border-b border-slate-800"
                 onclick="toggleMenu()">Digitales</a>
             <a href="#paginas-web" class="block py-3 text-slate-300 hover:text-green-400 border-b border-slate-800"
@@ -487,6 +490,273 @@
                 </div>
             </div>
 
+        </div>
+    </section>
+
+    <!-- ===================== SECCIÓN: IMPLEMENTACIÓN GLPI ===================== -->
+    <section id="glpi" class="py-24 relative overflow-hidden bg-slate-950/20 border-t border-slate-900">
+        <!-- Fondos decorativos difuminados -->
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-600/10 blur-[120px] rounded-full pointer-events-none"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600/10 blur-[120px] rounded-full pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <!-- Encabezado de la sección -->
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-300 text-xs font-bold tracking-wide uppercase mb-4">
+                    <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                    Gestión de Servicios de TI & Inventario
+                </div>
+                <h2 class="font-tech text-3xl md:text-5xl font-bold text-white mb-4">
+                    Implementación de <span class="text-gradient">GLPI ITSM</span>
+                </h2>
+                <p class="text-slate-300 max-w-2xl mx-auto text-base">
+                    Organiza y profesionaliza la gestión tecnológica de tu empresa. Centraliza el control de tus equipos, software, licencias, consumibles y gestiona incidentes de tus usuarios desde una única plataforma empresarial.
+                </p>
+            </div>
+
+            <!-- Contenido principal: Copys + Mockup Interactivo -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
+                <!-- Columna Izquierda: Información de Ventas -->
+                <div class="lg:col-span-5 space-y-6">
+                    <h3 class="text-2xl md:text-3xl font-tech font-bold text-white leading-tight">
+                        ¿Qué es GLPI y por qué tu empresa lo necesita?
+                    </h3>
+                    <p class="text-slate-300 leading-relaxed">
+                        GLPI es la herramienta de código abierto líder a nivel mundial para la **Gestión de Servicios de TI (ITSM)** y **Gestión de Activos de TI (ITAM)**. 
+                    </p>
+                    <p class="text-slate-300 leading-relaxed">
+                        Nos encargamos de toda la instalación, configuración a medida y capacitación. Tu empresa contará con un portal profesional donde los empleados podrán reportar incidentes y tu departamento de sistemas podrá controlar y programar tareas eficientemente.
+                    </p>
+                    
+                    <div class="space-y-3 pt-2">
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-cyan-500/10 flex items-center justify-center shrink-0 mt-0.5 text-cyan-400">
+                                <i class="ph-bold ph-check"></i>
+                            </div>
+                            <span class="text-slate-200 text-sm">Personalizado con la marca e identidad visual de tu empresa.</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-cyan-500/10 flex items-center justify-center shrink-0 mt-0.5 text-cyan-400">
+                                <i class="ph-bold ph-check"></i>
+                            </div>
+                            <span class="text-slate-200 text-sm">Integración con Directorio Activo (AD/LDAP) y correos.</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-cyan-500/10 flex items-center justify-center shrink-0 mt-0.5 text-cyan-400">
+                                <i class="ph-bold ph-check"></i>
+                            </div>
+                            <span class="text-slate-200 text-sm">Instalación local en tus servidores o en la nube (AWS/Azure/Cloud).</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                        <button onclick="scrollToContact()" class="px-8 py-4 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 rounded-full text-white font-bold transition-all shadow-[0_0_15px_rgba(6,182,212,0.4)] flex items-center justify-center gap-2">
+                            <i class="ph-bold ph-calendar-check"></i>
+                            Solicitar Demo
+                        </button>
+                        <a href="https://wa.me/51949061019?text=Hola!%20Me%20interesa%20la%20implementación%20de%20GLPI%20para%20mi%20empresa" target="_blank" class="px-8 py-4 glass border border-slate-700 text-white font-bold rounded-full hover:bg-slate-800 transition-all flex items-center justify-center gap-2">
+                            <i class="ph-fill ph-whatsapp-logo text-green-400 text-xl"></i>
+                            Hablar con un Experto
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Mockup Interactivo del Dashboard de GLPI -->
+                <div class="lg:col-span-7">
+                    <div class="relative rounded-2xl border border-slate-800 bg-slate-950/60 overflow-hidden shadow-2xl">
+                        <!-- Navegador: Barra Superior -->
+                        <div class="bg-slate-900/90 px-4 py-3 flex items-center gap-3 border-b border-slate-800/80">
+                            <!-- Botones tipo Mac -->
+                            <div class="flex gap-1.5 shrink-0">
+                                <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                            </div>
+                            <!-- Barra de dirección URL -->
+                            <div class="flex-1 bg-slate-950/80 rounded-lg px-4 py-1 text-xs text-slate-400 text-left border border-slate-800 flex items-center gap-2">
+                                <i class="ph ph-lock-key-open text-green-400"></i>
+                                <span class="tracking-wide">glpi.solucionestakana.space/</span>
+                            </div>
+                        </div>
+
+                        <!-- Interfaz interna del Dashboard GLPI Mockup -->
+                        <div class="grid grid-cols-12 min-h-[380px] text-xs">
+                            <!-- Sidebar del Panel GLPI -->
+                            <div class="col-span-3 bg-slate-950 border-r border-slate-900 p-3 space-y-4">
+                                <!-- Logo ST Mini -->
+                                <div class="flex items-center gap-2 pb-3 border-b border-slate-900">
+                                    <div class="w-7 h-7 rounded-full bg-cyan-600/20 border border-cyan-500/40 flex items-center justify-center text-cyan-400 font-bold text-xs">ST</div>
+                                    <span class="font-bold text-white text-[10px] tracking-wider">TAKANA IT</span>
+                                </div>
+                                <!-- Menú -->
+                                <ul class="space-y-1.5">
+                                    <li class="flex items-center gap-2 text-cyan-400 bg-cyan-500/10 px-2 py-1.5 rounded-md font-bold">
+                                        <i class="ph ph-chart-bar-horizontal"></i> Tablero
+                                    </li>
+                                    <li class="flex items-center gap-2 text-slate-400 hover:text-slate-200 px-2 py-1.5 rounded-md transition-colors">
+                                        <i class="ph ph-desktop"></i> Activos
+                                    </li>
+                                    <li class="flex items-center gap-2 text-slate-400 hover:text-slate-200 px-2 py-1.5 rounded-md transition-colors">
+                                        <i class="ph ph-envelope-open"></i> Asistencia
+                                    </li>
+                                    <li class="flex items-center gap-2 text-slate-400 hover:text-slate-200 px-2 py-1.5 rounded-md transition-colors">
+                                        <i class="ph ph-briefcase"></i> Gestión
+                                    </li>
+                                    <li class="flex items-center gap-2 text-slate-400 hover:text-slate-200 px-2 py-1.5 rounded-md transition-colors">
+                                        <i class="ph ph-wrench"></i> Herramientas
+                                    </li>
+                                    <li class="flex items-center gap-2 text-slate-400 hover:text-slate-200 px-2 py-1.5 rounded-md transition-colors">
+                                        <i class="ph ph-gear"></i> Configuración
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Área de Contenido Principal -->
+                            <div class="col-span-9 p-4 bg-slate-900/40 space-y-4">
+                                <!-- Cabecera del Panel -->
+                                <div class="flex justify-between items-center pb-2 border-b border-slate-800">
+                                    <span class="text-sm font-bold text-white">Inicio / Central</span>
+                                    <div class="flex items-center gap-2">
+                                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px]">Super-Admin</span>
+                                        <div class="w-6 h-6 rounded-full bg-cyan-600 flex items-center justify-center font-bold text-[10px] text-white">SA</div>
+                                    </div>
+                                </div>
+
+                                <!-- Grid de Indicadores Estadísticos -->
+                                <div class="grid grid-cols-4 gap-3 text-[10px]">
+                                    <!-- Computadoras (Verde) -->
+                                    <div class="bg-emerald-950/30 border border-emerald-500/20 p-2.5 rounded-lg flex flex-col justify-between">
+                                        <span class="text-emerald-400 font-semibold uppercase tracking-wider text-[8px]">Computadoras</span>
+                                        <div class="flex items-baseline justify-between mt-2">
+                                            <span class="text-white text-base font-bold">124</span>
+                                            <i class="ph ph-desktop text-emerald-400 text-sm"></i>
+                                        </div>
+                                    </div>
+                                    <!-- Servidores (Azul) -->
+                                    <div class="bg-blue-950/30 border border-blue-500/20 p-2.5 rounded-lg flex flex-col justify-between">
+                                        <span class="text-blue-400 font-semibold uppercase tracking-wider text-[8px]">Dispositivos Red</span>
+                                        <div class="flex items-baseline justify-between mt-2">
+                                            <span class="text-white text-base font-bold">18</span>
+                                            <i class="ph ph-tree-structure text-blue-400 text-sm"></i>
+                                        </div>
+                                    </div>
+                                    <!-- Licencias (Púrpura) -->
+                                    <div class="bg-purple-950/30 border border-purple-500/20 p-2.5 rounded-lg flex flex-col justify-between">
+                                        <span class="text-purple-400 font-semibold uppercase tracking-wider text-[8px]">Licencias</span>
+                                        <div class="flex items-baseline justify-between mt-2">
+                                            <span class="text-white text-base font-bold">36</span>
+                                            <i class="ph ph-key text-purple-400 text-sm"></i>
+                                        </div>
+                                    </div>
+                                    <!-- Tickets (Naranja) -->
+                                    <div class="bg-orange-950/30 border border-orange-500/20 p-2.5 rounded-lg flex flex-col justify-between">
+                                        <span class="text-orange-400 font-semibold uppercase tracking-wider text-[8px]">Tickets Activos</span>
+                                        <div class="flex items-baseline justify-between mt-2">
+                                            <span class="text-white text-base font-bold">3</span>
+                                            <i class="ph ph-envelope-open text-orange-400 text-sm"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Grid de Estado y Gráfico -->
+                                <div class="grid grid-cols-2 gap-4">
+                                    <!-- Listado de Últimos Tickets -->
+                                    <div class="bg-slate-950/80 border border-slate-800 p-3 rounded-lg space-y-2">
+                                        <span class="text-white font-bold text-[10px] block border-b border-slate-900 pb-1.5">Últimos Casos Recibidos</span>
+                                        <ul class="space-y-1.5 text-[9px]">
+                                            <li class="flex justify-between items-center text-slate-300">
+                                                <span class="truncate pr-2"><span class="text-orange-400 font-semibold">[Alta]</span> Servidor AD sin acceso</span>
+                                                <span class="px-1.5 py-0.5 rounded bg-orange-500/20 text-orange-400 text-[8px]">Asignado</span>
+                                            </li>
+                                            <li class="flex justify-between items-center text-slate-300">
+                                                <span class="truncate pr-2"><span class="text-cyan-400 font-semibold">[Media]</span> Instalar ERP en contabilidad</span>
+                                                <span class="px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-400 text-[8px]">Planificado</span>
+                                            </li>
+                                            <li class="flex justify-between items-center text-slate-300">
+                                                <span class="truncate pr-2"><span class="text-slate-400 font-semibold">[Baja]</span> Configuración de correo en móvil</span>
+                                                <span class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-[8px]">Resuelto</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- Reporte / Estado (Barra interactiva simulación) -->
+                                    <div class="bg-slate-950/80 border border-slate-800 p-3 rounded-lg space-y-2 flex flex-col justify-between">
+                                        <span class="text-white font-bold text-[10px] block border-b border-slate-900 pb-1.5">Estado de Casos por Mes</span>
+                                        <!-- Simulación de barra gráfica -->
+                                        <div class="space-y-2 py-1">
+                                            <div>
+                                                <div class="flex justify-between text-[8px] text-slate-400 mb-1">
+                                                    <span>Casos Resueltos (92%)</span>
+                                                    <span>46/50</span>
+                                                </div>
+                                                <div class="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden">
+                                                    <div class="bg-emerald-500 h-full rounded-full" style="width: 92%"></div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="flex justify-between text-[8px] text-slate-400 mb-1">
+                                                    <span>Dentro de SLA (88%)</span>
+                                                    <span>44/50</span>
+                                                </div>
+                                                <div class="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden">
+                                                    <div class="bg-cyan-500 h-full rounded-full" style="width: 88%"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fila de Tarjetas de Beneficios (Grid 4 columnas) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Beneficio 1: Inventario -->
+                <div class="glass-card p-6 rounded-xl hover:border-cyan-500/40 transition-all border border-slate-800/80">
+                    <div class="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center mb-4 text-cyan-400">
+                        <i class="ph-bold ph-desktop-tower text-xl"></i>
+                    </div>
+                    <h4 class="font-bold text-white text-base mb-2">Inventario Automático</h4>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Controla el hardware, software, licencias, ubicaciones, consumibles y fechas de garantía de todas las computadoras en un solo lugar.
+                    </p>
+                </div>
+
+                <!-- Beneficio 2: Mesa de Ayuda -->
+                <div class="glass-card p-6 rounded-xl hover:border-purple-500/40 transition-all border border-slate-800/80">
+                    <div class="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center mb-4 text-purple-400">
+                        <i class="ph-bold ph-ticket text-xl"></i>
+                    </div>
+                    <h4 class="font-bold text-white text-base mb-2">Mesa de Ayuda (ITSM)</h4>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Asigna, prioriza e implementa flujos de resolución de tickets. Tus usuarios podrán crear incidencias por web, correo o chat.
+                    </p>
+                </div>
+
+                <!-- Beneficio 3: Licencias y Costos -->
+                <div class="glass-card p-6 rounded-xl hover:border-green-500/40 transition-all border border-slate-800/80">
+                    <div class="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center mb-4 text-green-400">
+                        <i class="ph-bold ph-currency-dollar text-xl"></i>
+                    </div>
+                    <h4 class="font-bold text-white text-base mb-2">Cero Costos de Licencia</h4>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Al ser Open Source, no hay cobros mensuales recurrentes por usuario o agente técnico. Ahorro inmediato de miles de dólares al año.
+                    </p>
+                </div>
+
+                <!-- Beneficio 4: Base de Conocimientos -->
+                <div class="glass-card p-6 rounded-xl hover:border-orange-500/40 transition-all border border-slate-800/80">
+                    <div class="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center mb-4 text-orange-400">
+                        <i class="ph-bold ph-book-bookmark text-xl"></i>
+                    </div>
+                    <h4 class="font-bold text-white text-base mb-2">Autoservicio y SLA</h4>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Base de datos de soluciones integradas y políticas de SLA (tiempos límites de respuesta) para asegurar el cumplimiento del soporte técnico.
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -996,6 +1266,7 @@
                                     <option value="" disabled selected>Selecciona un servicio</option>
                                     <option value="soporte-tecnico">Soporte Técnico / Mantenimiento</option>
                                     <option value="servidores-zabbix">Servidores &amp; Monitoreo Zabbix</option>
+                                    <option value="glpi-implementacion">Mesa de Ayuda e Inventario (GLPI)</option>
                                     <option value="pagina-web">Página Web / Tienda Online</option>
                                     <option value="invitacion-matrimonio">Invitación Web Matrimonio</option>
                                     <option value="chatbots-automatizacion">Chatbots &amp; Automatización con IA</option>
