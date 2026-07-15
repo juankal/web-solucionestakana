@@ -156,7 +156,7 @@
                     </button>
                 </div>
 
-                <button class="lg:hidden text-2xl text-white" onclick="toggleMenu()" aria-label="Abrir menú de navegación">
+                <button id="mobile-menu-btn" class="lg:hidden text-2xl text-white" onclick="toggleMenu()" aria-label="Abrir menú de navegación" aria-expanded="false">
                     <i class="ph ph-list"></i>
                 </button>
             </div>
@@ -562,7 +562,7 @@
                             <i class="ph-bold ph-calendar-check"></i>
                             Solicitar Demo
                         </button>
-                        <a href="https://wa.me/51949061019?text=Hola!%20Me%20interesa%20la%20implementación%20de%20GLPI%20para%20mi%20empresa" target="_blank" class="px-8 py-4 glass border border-slate-700 text-white font-bold rounded-full hover:bg-slate-800 transition-all flex items-center justify-center gap-2">
+                        <a href="https://wa.me/51949061019?text=Hola!%20Me%20interesa%20la%20implementación%20de%20GLPI%20para%20mi%20empresa" target="_blank" rel="noopener noreferrer" class="px-8 py-4 glass border border-slate-700 text-white font-bold rounded-full hover:bg-slate-800 transition-all flex items-center justify-center gap-2">
                             <i class="ph-fill ph-whatsapp-logo text-green-400 text-xl"></i>
                             Hablar con un Experto
                         </a>
@@ -933,7 +933,7 @@
                             </div>
                             <div class="flex-1 bg-slate-800 rounded-full px-3 py-0.5 text-xs text-slate-400 text-center">fixingupconsulting.com</div>
                         </div>
-                        <img src="images/portfolio-fixingup.webp" alt="Fixing Up Consulting website screenshot"
+                        <img src="images/portfolio-fixingup.webp" alt="Captura de la web de Fixing Up Consulting mostrando servicios de mantenimiento y consultoría"
                             class="w-full h-full object-cover object-top pt-8 group-hover:scale-105 transition-transform duration-700"
                             onerror="this.parentElement.classList.add('bg-gradient-to-br','from-blue-900/40','to-slate-900'); this.style.display='none'">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
@@ -962,7 +962,7 @@
                             </div>
                             <div class="flex-1 bg-slate-800 rounded-full px-3 py-0.5 text-xs text-slate-400 text-center">homeideas.pe</div>
                         </div>
-                        <img src="images/portfolio-homeideas.webp" alt="Home Ideas Perú website screenshot"
+                        <img src="images/portfolio-homeideas.webp" alt="Captura de la tienda virtual Home Ideas Perú con catálogo de diseño de interiores"
                             class="w-full h-full object-cover object-top pt-8 group-hover:scale-105 transition-transform duration-700"
                             onerror="this.parentElement.classList.add('bg-gradient-to-br','from-amber-900/40','to-slate-900'); this.style.display='none'">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
@@ -991,7 +991,7 @@
                             </div>
                             <div class="flex-1 bg-slate-800 rounded-full px-3 py-0.5 text-xs text-slate-400 text-center">jorgemuro.net</div>
                         </div>
-                        <img src="images/portfolio-jorgemuro.webp" alt="Jorge Muro portfolio website screenshot"
+                        <img src="images/portfolio-jorgemuro.webp" alt="Captura del portafolio profesional de Jorge Muro con secciones de proyectos y habilidades"
                             class="w-full h-full object-cover object-top pt-8 group-hover:scale-105 transition-transform duration-700"
                             onerror="this.parentElement.classList.add('bg-gradient-to-br','from-purple-900/40','to-slate-900'); this.style.display='none'">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
@@ -1020,7 +1020,7 @@
                             </div>
                             <div class="flex-1 bg-slate-800 rounded-full px-3 py-0.5 text-xs text-slate-400 text-center">solucionestakana.space</div>
                         </div>
-                        <img src="images/portfolio-takana.webp" alt="Soluciones Takana website screenshot"
+                        <img src="images/portfolio-takana.webp" alt="Captura de la web de Soluciones Takana mostrando el diseño oscuro cyberpunk del home"
                             class="w-full h-full object-cover object-top pt-8 group-hover:scale-105 transition-transform duration-700"
                             onerror="this.parentElement.classList.add('bg-gradient-to-br','from-cyan-900/40','to-slate-900'); this.style.display='none'">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
@@ -1049,7 +1049,7 @@
                             </div>
                             <div class="flex-1 bg-slate-800 rounded-full px-3 py-0.5 text-xs text-slate-400 text-center">fiorella-y-walter.pages.dev</div>
                         </div>
-                        <img src="images/portfolio-wedding.webp" alt="Invitación de boda Fiorella y Walter screenshot"
+                        <img src="images/portfolio-wedding.webp" alt="Captura de la invitación digital interactiva de boda de Fiorella y Walter con cuenta regresiva"
                             class="w-full h-full object-cover object-top pt-8 group-hover:scale-105 transition-transform duration-700"
                             onerror="this.parentElement.classList.add('bg-gradient-to-br','from-pink-900/40','to-slate-900'); this.style.display='none'">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
@@ -1093,7 +1093,7 @@
                             <i class="ph-bold ph-paper-plane-tilt"></i>
                             Solicitar Cotización Web
                         </button>
-                        <a href="https://wa.me/51949061019?text=Hola!%20Me%20interesa%20una%20página%20web" target="_blank"
+                        <a href="https://wa.me/51949061019?text=Hola!%20Me%20interesa%20una%20página%20web" target="_blank" rel="noopener noreferrer"
                             class="px-8 py-4 glass border border-green-500/40 text-white font-bold rounded-full hover:bg-green-900/20 transition-all flex items-center justify-center gap-2">
                             <i class="ph-fill ph-whatsapp-logo text-green-400 text-xl"></i>
                             Consultar por WhatsApp

@@ -253,3 +253,265 @@ textarea:focus-visible {
     outline: 2px solid #22d3ee;
     outline-offset: 2px;
 }
+
+/* ==========================================================================
+   REGISTRATION & CALL-TO-ACTION BUTTONS (Takana Premium Components)
+   ========================================================================== */
+.btn-register {
+    --neon-cyan: #06b6d4;
+    --neon-blue: #3b82f6;
+    --neon-purple: #8b5cf6;
+    --neon-green: #10b981;
+    --neon-pink: #ec4899;
+    --font-tech: 'Space Grotesk', sans-serif;
+
+    /* Layout */
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    padding: 0.875rem 2rem;
+    min-width: 200px;
+
+    /* Typography */
+    font-family: var(--font-tech);
+    font-size: 0.9375rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #ffffff;
+
+    /* Visual */
+    background: linear-gradient(135deg, var(--neon-cyan) 0%, var(--neon-blue) 100%);
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+
+    /* Animation */
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 0.3s ease;
+}
+
+/* Animated shimmer overlay */
+.btn-register::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.15) 50%,
+        transparent 100%
+    );
+    z-index: 2;
+    transition: left 0.6s ease;
+}
+
+/* Neon glow border (pseudo-element) */
+.btn-register::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple), var(--neon-blue));
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    filter: blur(8px);
+}
+
+/* Icon inside button */
+.btn-register .btn-icon {
+    font-size: 1.25rem;
+    transition: transform 0.3s ease;
+}
+
+/* Ripple container */
+.btn-register .ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.35);
+    transform: scale(0);
+    animation: ripple-effect 0.6s ease-out forwards;
+    pointer-events: none;
+    z-index: 3;
+}
+
+@keyframes ripple-effect {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Hover state */
+.btn-register:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow:
+        0 0 20px rgba(6, 182, 212, 0.4),
+        0 0 60px rgba(6, 182, 212, 0.15),
+        0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.btn-register:hover::before {
+    left: 100%;
+}
+
+.btn-register:hover::after {
+    opacity: 1;
+}
+
+.btn-register:hover .btn-icon {
+    transform: translateX(2px) scale(1.1);
+}
+
+/* Focus visible for accessibility */
+.btn-register:focus-visible {
+    outline: 2px solid #22d3ee;
+    outline-offset: 3px;
+    box-shadow:
+        0 0 0 4px rgba(6, 182, 212, 0.25),
+        0 0 20px rgba(6, 182, 212, 0.3);
+}
+
+/* Active pressed state */
+.btn-register:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow:
+        0 0 10px rgba(6, 182, 212, 0.3),
+        0 2px 8px rgba(0, 0, 0, 0.4);
+    transition-duration: 0.1s;
+}
+
+/* Variant: Rounded (pill shape) */
+.btn-register--rounded {
+    border-radius: 9999px;
+}
+
+/* Variant: Sharp (cyberpunk corner-cut) */
+.btn-register--sharp {
+    border-radius: 0;
+    clip-path: polygon(
+        0 0,
+        calc(100% - 16px) 0,
+        100% 16px,
+        100% 100%,
+        16px 100%,
+        0 calc(100% - 16px)
+    );
+}
+
+/* Size Variants */
+.btn-register--sm {
+    padding: 0.625rem 1.5rem;
+    font-size: 0.8125rem;
+    min-width: 160px;
+    gap: 0.5rem;
+}
+
+.btn-register--sm .btn-icon {
+    font-size: 1.1rem;
+}
+
+.btn-register--lg {
+    padding: 1.125rem 2.75rem;
+    font-size: 1.0625rem;
+    min-width: 240px;
+}
+
+.btn-register--lg .btn-icon {
+    font-size: 1.375rem;
+}
+
+/* Color Variant: Green */
+.btn-register--green {
+    background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+}
+
+.btn-register--green::after {
+    background: linear-gradient(135deg, #10b981, #06b6d4, #10b981);
+}
+
+.btn-register--green:hover {
+    box-shadow:
+        0 0 20px rgba(16, 185, 129, 0.4),
+        0 0 60px rgba(16, 185, 129, 0.15),
+        0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.btn-register--green:focus-visible {
+    outline-color: #34d399;
+    box-shadow:
+        0 0 0 4px rgba(16, 185, 129, 0.25),
+        0 0 20px rgba(16, 185, 129, 0.3);
+}
+
+/* Color Variant: Purple */
+.btn-register--purple {
+    background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+}
+
+.btn-register--purple::after {
+    background: linear-gradient(135deg, #8b5cf6, #ec4899, #8b5cf6);
+}
+
+.btn-register--purple:hover {
+    box-shadow:
+        0 0 20px rgba(139, 92, 246, 0.4),
+        0 0 60px rgba(139, 92, 246, 0.15),
+        0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.btn-register--purple:focus-visible {
+    outline-color: #a78bfa;
+    box-shadow:
+        0 0 0 4px rgba(139, 92, 246, 0.25),
+        0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+/* Glass Outline Variant */
+.btn-register--glass {
+    background: rgba(15, 23, 42, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(6, 182, 212, 0.3);
+}
+
+.btn-register--glass:hover {
+    background: rgba(6, 182, 212, 0.1);
+    border-color: rgba(6, 182, 212, 0.6);
+    box-shadow:
+        0 0 20px rgba(6, 182, 212, 0.2),
+        0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.btn-register--glass::after {
+    display: none;
+}
+
+/* Pulse Animation for CTA Attention */
+.btn-register--pulse {
+    animation: neon-pulse 2.5s ease-in-out infinite;
+}
+
+.btn-register--pulse:hover {
+    animation: none;
+}
+
+@keyframes neon-pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.4),
+                    0 4px 16px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(6, 182, 212, 0),
+                    0 4px 16px rgba(0, 0, 0, 0.3);
+    }
+}
+

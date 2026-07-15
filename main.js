@@ -1,7 +1,14 @@
 // Mobile Menu Toggle
 function toggleMenu() {
     const menu = document.getElementById('mobile-menu');
-    menu.classList.toggle('hidden');
+    const btn = document.getElementById('mobile-menu-btn');
+    if (menu) {
+        const isHidden = menu.classList.toggle('hidden');
+        if (btn) {
+            btn.setAttribute('aria-expanded', !isHidden);
+            btn.setAttribute('aria-label', isHidden ? 'Abrir menú de navegación' : 'Cerrar menú de navegación');
+        }
+    }
 }
 
 function scrollToContact() {
@@ -84,7 +91,11 @@ document.addEventListener('visibilitychange', () => {
     }
 });
 
-window.addEventListener('resize', resize);
+let resizeTimeout;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(resize, 200);
+}, { passive: true });
 
 if (!prefersReducedMotion) {
     requestAnimationFrame(() => {
