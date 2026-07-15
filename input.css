@@ -1,0 +1,213 @@
+@import "tailwindcss";
+
+/* Anulación de font-display para Phosphor Icons (Lighthouse font-display: swap) */
+@font-face {
+  font-family: "Phosphor";
+  src: url("https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/Phosphor.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Phosphor-Bold";
+  src: url("https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/bold/Phosphor-Bold.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Phosphor-Fill";
+  src: url("https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/Phosphor-Fill.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --font-tech: "Space Grotesk", sans-serif;
+
+  --color-neon-cyan: #06b6d4;
+  --color-neon-purple: #8b5cf6;
+  --color-neon-blue: #3b82f6;
+  --color-neon-green: #10b981;
+  --color-neon-orange: #f97316;
+  --color-neon-pink: #ec4899;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+}
+
+body {
+    background-color: #020617;
+    overflow-x: hidden;
+}
+
+/* Efecto Glassmorphism */
+.glass {
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-card {
+    background: linear-gradient(145deg, rgba(30, 41, 59, 0.4) 0%, rgba(15, 23, 42, 0.6) 100%);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(56, 189, 248, 0.1);
+    transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    border-color: rgba(56, 189, 248, 0.4);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px -10px rgba(6, 182, 212, 0.2);
+}
+
+.text-gradient {
+    background: linear-gradient(to right, #22d3ee, #818cf8);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-orange {
+    background: linear-gradient(to right, #f97316, #fbbf24);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-green {
+    background: linear-gradient(to right, #34d399, #06b6d4);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Portfolio cards */
+.portfolio-card {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px -15px rgba(6, 182, 212, 0.2);
+}
+
+/* Web type cards stagger animation */
+.web-type-card {
+    transition: all 0.35s ease;
+}
+
+.web-type-card:hover {
+    transform: translateY(-4px);
+}
+
+.hero-image-mask {
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+/* Carrusel Styles */
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: 1;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+/* Testimonial Cards */
+.testimonial-card {
+    transition: all 0.35s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px -10px rgba(6, 182, 212, 0.15);
+}
+
+/* Chat Widget - Pulse Animation */
+.chat-widget-btn {
+    animation: chat-pulse 2.5s ease-in-out infinite;
+}
+
+.chat-widget-btn:hover {
+    animation: none;
+}
+
+@keyframes chat-pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.4), 0 10px 25px -5px rgba(6, 182, 212, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 0 12px rgba(6, 182, 212, 0), 0 10px 25px -5px rgba(6, 182, 212, 0.3);
+    }
+}
+
+/* Chat Drawer */
+.chat-drawer {
+    transform-origin: bottom right;
+    animation: drawer-in 0.25s ease-out;
+}
+
+@keyframes drawer-in {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Chat Bubbles */
+.chat-bubble-bot {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
+    border: 1px solid rgba(56, 189, 248, 0.1);
+    border-radius: 1rem 1rem 1rem 0.25rem;
+    padding: 0.75rem 1rem;
+    color: #e2e8f0;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    max-width: 85%;
+}
+
+.chat-bubble-user {
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.3), rgba(59, 130, 246, 0.3));
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    border-radius: 1rem 1rem 0.25rem 1rem;
+    padding: 0.75rem 1rem;
+    color: #f1f5f9;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    max-width: 85%;
+    margin-left: auto;
+}
+
+/* Footer aspect-ratio for maps */
+.aspect-video {
+    aspect-ratio: 16 / 9;
+}
