@@ -440,7 +440,7 @@ function renderOptions(options) {
                     removeTypingIndicator();
                     addBotMessage("Te estamos redirigiendo a WhatsApp para iniciar tu consulta...");
                     setTimeout(() => {
-                        window.open('https://wa.me/51949061019?text=' + encodeURIComponent(opt.data), '_blank');
+                        window.open('https://wa.me/51919071709?text=' + encodeURIComponent(opt.data), '_blank');
                     }, 500);
                 }, 400);
             } else if (opt.action === 'scroll') {
