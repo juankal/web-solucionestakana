@@ -2866,3 +2866,43 @@ textarea:focus-visible {
                     0 4px 16px rgba(0, 0, 0, 0.3);
     }
 }
+
+/* ==============================
+   AGENTE DE VENTAS IA — Estilos
+   ============================== */
+
+/* Gradiente animado del título principal */
+.ai-gradient-text {
+    -webkit-text-fill-color: transparent;
+    background: linear-gradient(135deg, #a855f7 0%, #06b6d4 50%, #818cf8 100%) 0 0 / 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: ai-text-shimmer 4s linear infinite;
+}
+
+@keyframes ai-text-shimmer {
+    0%   { background-position: 0%; }
+    100% { background-position: 200%; }
+}
+
+/* Animaciones de anillos orbitales */
+@keyframes spin-slow {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+@keyframes spin-reverse-slow {
+    0%   { transform: rotate(360deg); }
+    100% { transform: rotate(0deg); }
+}
+.animate-spin-slow         { animation: spin-slow 20s linear infinite; }
+.animate-spin-reverse-slow { animation: spin-reverse-slow 15s linear infinite; }
+
+/* Tarjetas de capacidades técnicas */
+.ai-feature-card {
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+.ai-feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 36px -8px rgba(139, 92, 246, 0.2);
+}
+
