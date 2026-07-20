@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 590 100" width="100%" height="100%">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&amp;display=swap');
+      .brand-text {
+        font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-size: 42px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+      }
+      .text-soluciones {
+        fill: #FFFFFF;
+      }
+      .text-takana {
+        fill: #22D3EE;
+      }
+    </style>
+
+    <linearGradient id="v-bg-dark" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+
+    <linearGradient id="v-shield-plate" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+
+    <filter id="v-eye-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- LOGO ICON (PURE VECTOR FACE AVATAR) -->
+  <g id="logo-icon-vector">
+    <!-- Outer Dark Circle Container -->
+    <circle cx="50" cy="50" r="47" fill="url(#v-bg-dark)" stroke="#334155" stroke-width="2" />
+    
+    <!-- Cyber Mask / Robot Face Geometry matching original icon -->
+    <!-- Head Contour -->
+    <path d="M 50,16 L 73,28 L 69,65 L 50,84 L 31,65 L 27,28 Z" fill="url(#v-shield-plate)" stroke="#38BDF8" stroke-width="1.8" />
+    
+    <!-- ST Forehead Shield -->
+    <path d="M 41,25 L 59,25 L 56,38 L 50,42 L 44,38 Z" fill="#0284C7" stroke="#22D3EE" stroke-width="1.2" />
+    <text x="50" y="35" text-anchor="middle" font-family="'Space Grotesk', sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" letter-spacing="0.5">ST</text>
+
+    <!-- Glowing Eyes -->
+    <polygon points="38,48 45,48 44,53 37,51" fill="#22D3EE" filter="url(#v-eye-glow)" />
+    <polygon points="62,48 55,48 56,53 63,51" fill="#22D3EE" filter="url(#v-eye-glow)" />
+    
+    <!-- Chin/Mouth Tech Vents -->
+    <line x1="43" y1="61" x2="57" y2="61" stroke="#38BDF8" stroke-width="1.2" />
+    <line x1="45" y1="66" x2="55" y2="66" stroke="#06B6D4" stroke-width="1.2" />
+    <line x1="47" y1="71" x2="53" y2="71" stroke="#06B6D4" stroke-width="1.2" />
+  </g>
+
+  <!-- TEXT "SOLUCIONES TAKANA" (STRICTLY WEB NAVBAR STYLING) -->
+  <text x="118" y="64" class="brand-text">
+    <tspan class="text-soluciones">SOLUCIONES </tspan>
+    <tspan class="text-takana">TAKANA</tspan>
+  </text>
+</svg>
