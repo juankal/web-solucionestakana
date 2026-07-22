@@ -112,38 +112,47 @@ if (!prefersReducedMotion) {
     });
 }
 
-// Carousel Script — with dots, hover pause, and manual navigation
-const slides = document.querySelectorAll('.carousel-slide');
-const dots = document.querySelectorAll('.carousel-dot');
+// Carousel Script — con dots, pausa al hover y navegacion automatica cada 5s
+const slides = document.querySelectorAll('#hero-carousel .carousel-slide');
+const dots = document.querySelectorAll('#carousel-dots .carousel-dot');
 let currentSlide = 0;
 const slideIntervalMs = 5000;
 let carouselTimer = null;
 const heroCarousel = document.getElementById('hero-carousel');
 
 function updateSlide(index) {
-    slides[currentSlide].classList.remove('active');
+    if (!slides || slides.length === 0) return;
+    if (slides[currentSlide]) slides[currentSlide].classList.remove('active');
     if (dots[currentSlide]) dots[currentSlide].classList.remove('active');
     currentSlide = index;
-    slides[currentSlide].classList.add('active');
+    if (slides[currentSlide]) slides[currentSlide].classList.add('active');
     if (dots[currentSlide]) dots[currentSlide].classList.add('active');
 }
 
 function nextSlide() {
+    if (!slides || slides.length === 0) return;
     updateSlide((currentSlide + 1) % slides.length);
 }
 
+function prevSlide() {
+    if (!slides || slides.length === 0) return;
+    updateSlide((currentSlide - 1 + slides.length) % slides.length);
+    resetCarouselTimer();
+}
+
 function goToSlide(index) {
-    if (index === currentSlide) return;
+    if (!slides || slides.length === 0) return;
     updateSlide(index);
     resetCarouselTimer();
 }
 
 function startCarouselTimer() {
+    if (carouselTimer) clearInterval(carouselTimer);
     carouselTimer = setInterval(nextSlide, slideIntervalMs);
 }
 
 function resetCarouselTimer() {
-    clearInterval(carouselTimer);
+    if (carouselTimer) clearInterval(carouselTimer);
     startCarouselTimer();
 }
 
@@ -151,7 +160,7 @@ startCarouselTimer();
 
 // Pause carousel on hover
 if (heroCarousel) {
-    heroCarousel.addEventListener('mouseenter', () => clearInterval(carouselTimer));
+    heroCarousel.addEventListener('mouseenter', () => { if (carouselTimer) clearInterval(carouselTimer); });
     heroCarousel.addEventListener('mouseleave', () => startCarouselTimer());
 }
 
@@ -225,11 +234,27 @@ const chatFlow = {
     inicio: {
         bot: "¡Hola! Bienvenido a Soluciones Takana. Somos tu departamento de sistemas externo. ¿En qué tipo de solución estás interesado hoy?",
         options: [
+            { text: "Monitoreo Zabbix 24/7", next: "zabbix" },
             { text: "Servidores & Infraestructura", next: "infraestructura" },
             { text: "Mesa de Ayuda & Activos (GLPI)", next: "glpi" },
             { text: "Diseño & Desarrollo Web", next: "web" },
             { text: "Chatbots & Automatización IA", next: "automatizacion" },
             { text: "Ver Casos de Éxito", next: "casos" }
+        ]
+    },
+    zabbix: {
+        bot: "Implementamos Monitoreo Zabbix 24/7 en tiempo real para tus servidores (Windows/Linux), switches, routers, enlaces ISP y servicios web. Es 100% Software Libre (Código Abierto), por lo que no pagas licencias por dispositivo ni agentes, con alertas inmediatas por Telegram, WhatsApp y correo.",
+        options: [
+            { text: "Cotizar Monitoreo Zabbix", next: "conversion_zabbix" },
+            { text: "Volver al inicio", next: "inicio" }
+        ]
+    },
+    conversion_zabbix: {
+        bot: "¡Excelente decisión! Te enviaremos una propuesta personalizada de Monitoreo Zabbix 24/7 en menos de 24 horas. Puedes elegir cómo continuar para coordinar los detalles:",
+        options: [
+            { text: "📱 Hablar por WhatsApp", action: "whatsapp", data: "Hola, me interesa la implementación de Monitoreo Zabbix 24/7 para mi infraestructura." },
+            { text: "✉️ Ir al Formulario de Contacto", action: "scroll", data: "contacto" },
+            { text: "↩️ Volver al inicio", next: "inicio" }
         ]
     },
     infraestructura: {
@@ -565,5 +590,75 @@ document.addEventListener('DOMContentLoaded', () => {
 
     revealTargets.forEach(el => revealObserver.observe(el));
 });
+
+// ==================== ZABBIX CAROUSEL SLIDER ====================
+let zabbixCurrentSlide = 0;
+let zabbixTimer = null;
+const zabbixSlideIntervalMs = 6000;
+
+function updateZabbixSlide(index) {
+    const zSlides = document.querySelectorAll('.zabbix-slide');
+    const zDots = document.querySelectorAll('.zabbix-dot');
+    if (!zSlides || zSlides.length === 0) return;
+
+    zSlides.forEach((slide, i) => {
+        if (i === index) {
+            slide.classList.add('active', 'opacity-100');
+            slide.classList.remove('opacity-0', 'pointer-events-none');
+        } else {
+            slide.classList.remove('active', 'opacity-100');
+            slide.classList.add('opacity-0', 'pointer-events-none');
+        }
+    });
+
+    zDots.forEach((dot, i) => {
+        if (i === index) {
+            dot.classList.add('bg-red-600', 'text-white');
+            dot.classList.remove('bg-slate-800', 'text-slate-400');
+        } else {
+            dot.classList.remove('bg-red-600', 'text-white');
+            dot.classList.add('bg-slate-800', 'text-slate-400');
+        }
+    });
+
+    zabbixCurrentSlide = index;
+}
+
+function nextZabbixSlide() {
+    const zSlides = document.querySelectorAll('.zabbix-slide');
+    if (!zSlides || zSlides.length === 0) return;
+    updateZabbixSlide((zabbixCurrentSlide + 1) % zSlides.length);
+}
+
+function prevZabbixSlide() {
+    const zSlides = document.querySelectorAll('.zabbix-slide');
+    if (!zSlides || zSlides.length === 0) return;
+    updateZabbixSlide((zabbixCurrentSlide - 1 + zSlides.length) % zSlides.length);
+}
+
+function setZabbixSlide(index) {
+    updateZabbixSlide(index);
+    resetZabbixTimer();
+}
+
+function startZabbixTimer() {
+    if (zabbixTimer) clearInterval(zabbixTimer);
+    zabbixTimer = setInterval(nextZabbixSlide, zabbixSlideIntervalMs);
+}
+
+function resetZabbixTimer() {
+    if (zabbixTimer) clearInterval(zabbixTimer);
+    startZabbixTimer();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    startZabbixTimer();
+    const zContainer = document.getElementById('zabbix-carousel');
+    if (zContainer) {
+        zContainer.addEventListener('mouseenter', () => { if (zabbixTimer) clearInterval(zabbixTimer); });
+        zContainer.addEventListener('mouseleave', () => startZabbixTimer());
+    }
+});
+
 
 

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 50" fill="none">
+    <!-- Red Badge Background -->
+    <rect width="240" height="50" rx="8" fill="#D40000"/>
+    <!-- Official Z Stencil Mark inside badge -->
+    <g transform="translate(12, 7) scale(0.75)">
+        <path fill="#FFFFFF" d="M8.726 7.197h32v2.26l-27.96 28.28h29.42v2.9H7.266v-1.92l27.86-28.62h-26.4z"/>
+    </g>
+    <!-- ZABBIX Typography -->
+    <text x="56" y="34" font-family="'Space Grotesk', 'Inter', sans-serif" font-weight="900" font-size="28" fill="#FFFFFF" letter-spacing="2">ZABBIX</text>
+</svg>
