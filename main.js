@@ -113,35 +113,42 @@ if (!prefersReducedMotion) {
 }
 
 // Carousel Script — con dots, pausa al hover y navegacion automatica cada 5s
-const slides = document.querySelectorAll('#hero-carousel .carousel-slide');
-const dots = document.querySelectorAll('#carousel-dots .carousel-dot');
 let currentSlide = 0;
 const slideIntervalMs = 5000;
 let carouselTimer = null;
-const heroCarousel = document.getElementById('hero-carousel');
+
+function getSlides() {
+    return document.querySelectorAll('#hero-carousel .carousel-slide');
+}
+function getDots() {
+    return document.querySelectorAll('#carousel-dots .carousel-dot');
+}
 
 function updateSlide(index) {
+    const slides = getSlides();
+    const dots = getDots();
     if (!slides || slides.length === 0) return;
-    if (slides[currentSlide]) slides[currentSlide].classList.remove('active');
-    if (dots[currentSlide]) dots[currentSlide].classList.remove('active');
-    currentSlide = index;
+    slides.forEach(s => s.classList.remove('active'));
+    dots.forEach(d => d.classList.remove('active'));
+    currentSlide = (index + slides.length) % slides.length;
     if (slides[currentSlide]) slides[currentSlide].classList.add('active');
     if (dots[currentSlide]) dots[currentSlide].classList.add('active');
 }
 
 function nextSlide() {
+    const slides = getSlides();
     if (!slides || slides.length === 0) return;
-    updateSlide((currentSlide + 1) % slides.length);
+    updateSlide(currentSlide + 1);
 }
 
 function prevSlide() {
+    const slides = getSlides();
     if (!slides || slides.length === 0) return;
-    updateSlide((currentSlide - 1 + slides.length) % slides.length);
+    updateSlide(currentSlide - 1);
     resetCarouselTimer();
 }
 
 function goToSlide(index) {
-    if (!slides || slides.length === 0) return;
     updateSlide(index);
     resetCarouselTimer();
 }
@@ -156,12 +163,20 @@ function resetCarouselTimer() {
     startCarouselTimer();
 }
 
-startCarouselTimer();
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCarousel);
+} else {
+    initCarousel();
+}
 
-// Pause carousel on hover
-if (heroCarousel) {
-    heroCarousel.addEventListener('mouseenter', () => { if (carouselTimer) clearInterval(carouselTimer); });
-    heroCarousel.addEventListener('mouseleave', () => startCarouselTimer());
+function initCarousel() {
+    updateSlide(0);
+    startCarouselTimer();
+    const heroCarousel = document.getElementById('hero-carousel');
+    if (heroCarousel) {
+        heroCarousel.addEventListener('mouseenter', () => { if (carouselTimer) clearInterval(carouselTimer); });
+        heroCarousel.addEventListener('mouseleave', () => startCarouselTimer());
+    }
 }
 
 // Formulario de Contacto Handler (AJAX con Fetch)
