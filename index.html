@@ -166,10 +166,48 @@
                 </div>
 
                 <div class="hidden lg:flex items-center gap-5 xl:gap-6">
-                    <a href="#soluciones" class="text-sm font-semibold text-cyan-400 hover:text-cyan-300 transition-colors flex items-center gap-1.5 whitespace-nowrap">
-                        <i class="ph-bold ph-lightbulb text-cyan-400"></i>
-                        Soluciones
-                    </a>
+                    <!-- Dropdown de Soluciones -->
+                    <div class="relative group py-2">
+                        <a href="#soluciones" class="text-sm font-semibold text-cyan-400 hover:text-cyan-300 transition-colors flex items-center gap-1.5 whitespace-nowrap cursor-pointer">
+                            <i class="ph-bold ph-lightbulb text-cyan-400"></i>
+                            Soluciones
+                            <i class="ph-bold ph-caret-down text-xs text-cyan-400 group-hover:rotate-180 transition-transform duration-200"></i>
+                        </a>
+
+                        <!-- Menú Desplegable Glassmorphism -->
+                        <div class="absolute top-full left-0 mt-1 w-64 glass bg-slate-900/95 border border-slate-700/80 rounded-2xl p-2 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 backdrop-blur-xl">
+                            <a href="productos/agente-ventas-ia.html" class="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-purple-500/10 text-slate-200 hover:text-purple-300 transition-colors text-xs font-semibold">
+                                <span class="w-2 h-2 rounded-full bg-purple-400 animate-pulse shrink-0"></span>
+                                <span>Agente de Ventas IA</span>
+                            </a>
+                            <a href="productos/monitoreo-zabbix-247.html" class="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-red-500/10 text-slate-200 hover:text-red-300 transition-colors text-xs font-semibold">
+                                <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse shrink-0"></span>
+                                <span>Monitoreo Zabbix 24/7</span>
+                            </a>
+                            <a href="productos/glpi-itsm-mesa-de-ayuda.html" class="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-cyan-500/10 text-slate-200 hover:text-cyan-300 transition-colors text-xs font-semibold">
+                                <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shrink-0"></span>
+                                <span>GLPI ITSM Mesa de Ayuda</span>
+                            </a>
+                            <a href="productos/desarrollo-web-ecommerce.html" class="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-emerald-500/10 text-slate-200 hover:text-emerald-300 transition-colors text-xs font-semibold">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
+                                <span>Tienda Online E-Commerce</span>
+                            </a>
+                            <a href="productos/pagina-web-informativa.html" class="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-teal-500/10 text-slate-200 hover:text-teal-300 transition-colors text-xs font-semibold">
+                                <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse shrink-0"></span>
+                                <span>Página Web Informativa</span>
+                            </a>
+                            <a href="productos/soporte-ti-servidores.html" class="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-orange-500/10 text-slate-200 hover:text-orange-300 transition-colors text-xs font-semibold">
+                                <span class="w-2 h-2 rounded-full bg-orange-400 animate-pulse shrink-0"></span>
+                                <span>Soporte TI &amp; Servidores</span>
+                            </a>
+                            <a href="productos/chatbots-automatizacion.html" class="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-purple-500/10 text-slate-200 hover:text-purple-300 transition-colors text-xs font-semibold">
+                                <span class="w-2 h-2 rounded-full bg-purple-400 animate-pulse shrink-0"></span>
+                                <span>Chatbots &amp; Automatización</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Enlaces Directos con Puntos Animados Consistentes -->
                     <a href="productos/agente-ventas-ia.html" class="text-sm font-semibold text-purple-400 hover:text-purple-300 transition-colors flex items-center gap-1.5 whitespace-nowrap">
                         <span class="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></span>
                         Agente IA
@@ -182,8 +220,14 @@
                         <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
                         GLPI ITSM
                     </a>
-                    <a href="productos/desarrollo-web-ecommerce.html" class="text-sm font-semibold text-emerald-400 hover:text-emerald-300 transition-colors whitespace-nowrap">Tienda Online</a>
-                    <a href="productos/soporte-ti-servidores.html" class="text-sm font-semibold text-orange-400 hover:text-orange-300 transition-colors whitespace-nowrap">Soporte TI</a>
+                    <a href="productos/desarrollo-web-ecommerce.html" class="text-sm font-semibold text-emerald-400 hover:text-emerald-300 transition-colors flex items-center gap-1.5 whitespace-nowrap">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        Tienda Online
+                    </a>
+                    <a href="productos/soporte-ti-servidores.html" class="text-sm font-semibold text-orange-400 hover:text-orange-300 transition-colors flex items-center gap-1.5 whitespace-nowrap">
+                        <span class="w-2 h-2 rounded-full bg-orange-400 animate-pulse"></span>
+                        Soporte TI
+                    </a>
                     <a href="#nosotros" class="text-sm font-semibold text-slate-300 hover:text-white transition-colors whitespace-nowrap">Nosotros</a>
                     <button onclick="scrollToContact()"
                         class="px-6 py-2.5 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 rounded-full text-white font-extrabold text-sm transition-all shadow-[0_0_18px_rgba(6,182,212,0.4)] hover:shadow-[0_0_24px_rgba(6,182,212,0.7)] whitespace-nowrap">
@@ -196,6 +240,8 @@
                 </button>
             </div>
         </div>
+
+        <!-- Menú Móvil con Puntos Animados Consistentes -->
         <div id="mobile-menu" class="hidden lg:hidden bg-slate-900 border-b border-slate-800 p-4 absolute w-full z-50">
             <a href="#soluciones" class="flex items-center gap-2 py-3 text-cyan-400 hover:text-cyan-300 border-b border-slate-800 font-medium"
                 onclick="toggleMenu()">
@@ -217,12 +263,26 @@
                 <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
                 GLPI ITSM Mesa de Ayuda
             </a>
-            <a href="productos/desarrollo-web-ecommerce.html" class="block py-3 text-emerald-400 hover:text-emerald-300 border-b border-slate-800"
-                onclick="toggleMenu()">Tienda Online E-Commerce</a>
-            <a href="productos/soporte-ti-servidores.html" class="block py-3 text-orange-400 hover:text-orange-300 border-b border-slate-800"
-                onclick="toggleMenu()">Soporte TI &amp; Servidores</a>
-            <a href="#soluciones" class="block py-3 text-slate-300 hover:text-green-400 border-b border-slate-800"
-                onclick="toggleMenu()">Páginas Web</a>
+            <a href="productos/desarrollo-web-ecommerce.html" class="flex items-center gap-2 py-3 text-emerald-400 hover:text-emerald-300 border-b border-slate-800 font-medium"
+                onclick="toggleMenu()">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                Tienda Online E-Commerce
+            </a>
+            <a href="productos/pagina-web-informativa.html" class="flex items-center gap-2 py-3 text-teal-400 hover:text-teal-300 border-b border-slate-800 font-medium"
+                onclick="toggleMenu()">
+                <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
+                Página Web Informativa
+            </a>
+            <a href="productos/soporte-ti-servidores.html" class="flex items-center gap-2 py-3 text-orange-400 hover:text-orange-300 border-b border-slate-800 font-medium"
+                onclick="toggleMenu()">
+                <span class="w-2 h-2 rounded-full bg-orange-400 animate-pulse"></span>
+                Soporte TI &amp; Servidores
+            </a>
+            <a href="productos/chatbots-automatizacion.html" class="flex items-center gap-2 py-3 text-purple-400 hover:text-purple-300 border-b border-slate-800 font-medium"
+                onclick="toggleMenu()">
+                <span class="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></span>
+                Chatbots &amp; Automatización
+            </a>
             <a href="#nosotros" class="block py-3 text-slate-300 hover:text-cyan-400 border-b border-slate-800"
                 onclick="toggleMenu()">Nosotros</a>
             <button onclick="scrollToContact(); toggleMenu()"
