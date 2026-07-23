@@ -15,6 +15,8 @@
       <g:brand>Soluciones Takana</g:brand>
       <g:condition>new</g:condition>
       <g:availability>in stock</g:availability>
+      <g:inventory>100</g:inventory>
+      <g:quantity_to_sell_on_facebook>100</g:quantity_to_sell_on_facebook>
       <g:price>2990.00 PEN</g:price>
       <g:google_product_category>Software &gt; Business &amp; Productivity Software</g:google_product_category>
     </item>
@@ -29,6 +31,8 @@
       <g:brand>Soluciones Takana</g:brand>
       <g:condition>new</g:condition>
       <g:availability>in stock</g:availability>
+      <g:inventory>100</g:inventory>
+      <g:quantity_to_sell_on_facebook>100</g:quantity_to_sell_on_facebook>
       <g:price>3990.00 PEN</g:price>
       <g:google_product_category>Software &gt; Network Management Software</g:google_product_category>
     </item>
@@ -43,6 +47,8 @@
       <g:brand>Soluciones Takana</g:brand>
       <g:condition>new</g:condition>
       <g:availability>in stock</g:availability>
+      <g:inventory>100</g:inventory>
+      <g:quantity_to_sell_on_facebook>100</g:quantity_to_sell_on_facebook>
       <g:price>3250.00 PEN</g:price>
       <g:google_product_category>Software &gt; Help Desk Software</g:google_product_category>
     </item>
@@ -57,6 +63,8 @@
       <g:brand>Soluciones Takana</g:brand>
       <g:condition>new</g:condition>
       <g:availability>in stock</g:availability>
+      <g:inventory>100</g:inventory>
+      <g:quantity_to_sell_on_facebook>100</g:quantity_to_sell_on_facebook>
       <g:price>2990.00 PEN</g:price>
       <g:google_product_category>Software &gt; E-Commerce Software</g:google_product_category>
     </item>
@@ -71,6 +79,8 @@
       <g:brand>Soluciones Takana</g:brand>
       <g:condition>new</g:condition>
       <g:availability>in stock</g:availability>
+      <g:inventory>100</g:inventory>
+      <g:quantity_to_sell_on_facebook>100</g:quantity_to_sell_on_facebook>
       <g:price>1250.00 PEN</g:price>
       <g:google_product_category>Software &gt; E-Commerce Software</g:google_product_category>
     </item>
@@ -85,6 +95,8 @@
       <g:brand>Soluciones Takana</g:brand>
       <g:condition>new</g:condition>
       <g:availability>in stock</g:availability>
+      <g:inventory>100</g:inventory>
+      <g:quantity_to_sell_on_facebook>100</g:quantity_to_sell_on_facebook>
       <g:price>650.00 PEN</g:price>
       <g:google_product_category>Software &gt; Web Design Software</g:google_product_category>
     </item>
@@ -99,6 +111,8 @@
       <g:brand>Soluciones Takana</g:brand>
       <g:condition>new</g:condition>
       <g:availability>in stock</g:availability>
+      <g:inventory>100</g:inventory>
+      <g:quantity_to_sell_on_facebook>100</g:quantity_to_sell_on_facebook>
       <g:price>300.00 PEN</g:price>
       <g:google_product_category>Services &gt; IT Support Services</g:google_product_category>
     </item>
