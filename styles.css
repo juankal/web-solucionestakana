@@ -3434,21 +3434,21 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .nav-dropdown-menu {
   position: absolute;
   top: 100%;
-  left: 0;
-  margin-top: 0.25rem;
-  width: 17.5rem;
-  background-color: rgba(15, 23, 42, 0.96);
-  border: 1px solid rgba(51, 65, 85, 0.8);
-  border-radius: 1rem;
-  padding: 0.5rem;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+  left: -1rem;
+  margin-top: 0.5rem;
+  width: 21.5rem;
+  background: rgba(15, 23, 42, 0.97);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 1.25rem;
+  padding: 0.6rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 30px rgba(6, 182, 212, 0.15);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(8px);
+  transform: translateY(10px);
   transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
   z-index: 9999;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 .nav-dropdown:hover .nav-dropdown-menu,
 .nav-dropdown.active .nav-dropdown-menu,
