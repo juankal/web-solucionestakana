@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
+  <channel>
+    <title>Soluciones Takana - Catálogo Oficial</title>
+    <link>https://solucionestakana.space/</link>
+    <description>Catálogo de soluciones en Inteligencia Artificial, monitoreo Zabbix, GLPI ITSM y desarrollo web en Tacna, Perú.</description>
+
+    <!-- Producto 1: Agente IA -->
+    <item>
+      <g:id>TAKANA-AI-01</g:id>
+      <title>Agente de Ventas con IA para WhatsApp e Instagram</title>
+      <description>Agente de ventas con Inteligencia Artificial que atiende, recomienda productos y cierra ventas 24/7 en WhatsApp e Instagram sin intervención humana.</description>
+      <link>https://solucionestakana.space/productos/agente-ventas-ia.html</link>
+      <g:image_link>https://solucionestakana.space/images/ai-sales-agent.png</g:image_link>
+      <g:brand>Soluciones Takana</g:brand>
+      <g:condition>new</g:condition>
+      <g:availability>in stock</g:availability>
+      <g:price>2990.00 PEN</g:price>
+      <g:google_product_category>Software &gt; Business &amp; Productivity Software</g:google_product_category>
+    </item>
+
+    <!-- Producto 2: Zabbix 24/7 -->
+    <item>
+      <g:id>TAKANA-ZABBIX-01</g:id>
+      <title>Monitoreo TI Proactivo con Zabbix 24/7</title>
+      <description>Supervisión en tiempo real de infraestructura, servidores Windows/Linux y redes con alertas instantáneas a Telegram y WhatsApp. 100% Software Libre sin pago de licencias.</description>
+      <link>https://solucionestakana.space/productos/monitoreo-zabbix-247.html</link>
+      <g:image_link>https://solucionestakana.space/images/zabbix-hero-showcase.png</g:image_link>
+      <g:brand>Soluciones Takana</g:brand>
+      <g:condition>new</g:condition>
+      <g:availability>in stock</g:availability>
+      <g:price>3990.00 PEN</g:price>
+      <g:google_product_category>Software &gt; Network Management Software</g:google_product_category>
+    </item>
+
+    <!-- Producto 3: GLPI ITSM -->
+    <item>
+      <g:id>TAKANA-GLPI-01</g:id>
+      <title>Mesa de Ayuda y Gestión de Activos GLPI ITSM</title>
+      <description>Plataforma profesional GLPI ITSM para gestión de tecnología empresarial. Registro de tickets de soporte, inventario automatizado de hardware y licencias.</description>
+      <link>https://solucionestakana.space/productos/glpi-itsm-mesa-de-ayuda.html</link>
+      <g:image_link>https://solucionestakana.space/images/glpi-hero-showcase.png</g:image_link>
+      <g:brand>Soluciones Takana</g:brand>
+      <g:condition>new</g:condition>
+      <g:availability>in stock</g:availability>
+      <g:price>3250.00 PEN</g:price>
+      <g:google_product_category>Software &gt; Help Desk Software</g:google_product_category>
+    </item>
+
+    <!-- Producto 4: E-Commerce Premium -->
+    <item>
+      <g:id>TAKANA-WEB-PREMIUM</g:id>
+      <title>Tienda Online Ecommerce Premium (WordPress + WooCommerce)</title>
+      <description>Desarrollo de tienda virtual e-commerce sobre WordPress y WooCommerce. Incluye catálogo ilimitado, pasarelas de pago (Visa, Mastercard, Yape, Plin), Meta Pixel CAPI y GA4.</description>
+      <link>https://solucionestakana.space/productos/desarrollo-web-ecommerce.html</link>
+      <g:image_link>https://solucionestakana.space/images/web-hero-showcase.png</g:image_link>
+      <g:brand>Soluciones Takana</g:brand>
+      <g:condition>new</g:condition>
+      <g:availability>in stock</g:availability>
+      <g:price>2990.00 PEN</g:price>
+      <g:google_product_category>Software &gt; E-Commerce Software</g:google_product_category>
+    </item>
+
+    <!-- Producto 5: E-Commerce Básica -->
+    <item>
+      <g:id>TAKANA-WEB-BASICA</g:id>
+      <title>Tienda Online Ecommerce Básica (WordPress + WooCommerce)</title>
+      <description>Tienda virtual profesional desarrollada en WordPress y WooCommerce. Incluye catálogo de hasta 50 productos, pasarelas de pago online y botón a WhatsApp.</description>
+      <link>https://solucionestakana.space/productos/tienda-online-ecommerce-basica.html</link>
+      <g:image_link>https://solucionestakana.space/images/web-basic-showcase.png</g:image_link>
+      <g:brand>Soluciones Takana</g:brand>
+      <g:condition>new</g:condition>
+      <g:availability>in stock</g:availability>
+      <g:price>1250.00 PEN</g:price>
+      <g:google_product_category>Software &gt; E-Commerce Software</g:google_product_category>
+    </item>
+
+    <!-- Producto 6: Web Informativa -->
+    <item>
+      <g:id>TAKANA-WEB-INFO</g:id>
+      <title>Página Web Informativa Corporativa</title>
+      <description>Diseño y desarrollo de sitio web corporativo para empresas. Transmite confianza, destaca tus servicios e integra formulario de contacto y botón directo a WhatsApp.</description>
+      <link>https://solucionestakana.space/productos/pagina-web-informativa.html</link>
+      <g:image_link>https://solucionestakana.space/images/web-info-showcase.png</g:image_link>
+      <g:brand>Soluciones Takana</g:brand>
+      <g:condition>new</g:condition>
+      <g:availability>in stock</g:availability>
+      <g:price>650.00 PEN</g:price>
+      <g:google_product_category>Software &gt; Web Design Software</g:google_product_category>
+    </item>
+
+    <!-- Producto 7: Soporte TI &amp; Servidores -->
+    <item>
+      <g:id>TAKANA-SOPORTE-01</g:id>
+      <title>Soporte TI Presencial/Remoto &amp; Gestión de Servidores</title>
+      <description>Servicio integral de soporte técnico y administración de infraestructura TI para empresas en Tacna. Gestión de servidores Windows/Linux y backups corporativos.</description>
+      <link>https://solucionestakana.space/productos/soporte-ti-servidores.html</link>
+      <g:image_link>https://solucionestakana.space/images/servers.webp</g:image_link>
+      <g:brand>Soluciones Takana</g:brand>
+      <g:condition>new</g:condition>
+      <g:availability>in stock</g:availability>
+      <g:price>300.00 PEN</g:price>
+      <g:google_product_category>Services &gt; IT Support Services</g:google_product_category>
+    </item>
+
+  </channel>
+</rss>
