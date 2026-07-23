@@ -11,6 +11,22 @@ function toggleMenu() {
     }
 }
 
+// Dropdown de Soluciones para click / touch / hover
+function toggleSolucionesDropdown(e) {
+    const dropdown = e.currentTarget.closest('.nav-dropdown');
+    if (dropdown) {
+        dropdown.classList.toggle('active');
+    }
+}
+
+document.addEventListener('click', function(e) {
+    if (!e.target.closest('.nav-dropdown')) {
+        document.querySelectorAll('.nav-dropdown').forEach(function(d) {
+            d.classList.remove('active');
+        });
+    }
+});
+
 function scrollToContact() {
     document.getElementById('contacto').scrollIntoView({ behavior: 'smooth' });
 }
