@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+# Disallow admin or private directories (agregar si aplica)
+# Disallow: /admin/
+
 Sitemap: https://solucionestakana.space/sitemap.xml
