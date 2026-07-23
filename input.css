@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@source ".";
+
 
 /* Anulación de font-display para Phosphor Icons (Lighthouse font-display: swap) */
 @font-face {

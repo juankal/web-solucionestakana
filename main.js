@@ -17,99 +17,101 @@ function scrollToContact() {
 
 // Particle Network Animation (Vanilla JS) — with reduced-motion support & visibility pause
 const canvas = document.getElementById('neural-network');
-const ctx = canvas.getContext('2d');
-let width, height, particles;
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (canvas) {
+    const ctx = canvas.getContext('2d');
+    let width, height, particles;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-function resize() {
-    width = window.innerWidth;
-    height = window.innerHeight;
-    canvas.width = width;
-    canvas.height = height;
-    initParticles();
-}
-
-function initParticles() {
-    particles = [];
-    const count = Math.min(50, Math.floor(width / 30));
-    for (let i = 0; i < count; i++) {
-        particles.push({
-            x: Math.random() * width,
-            y: Math.random() * height,
-            vx: (Math.random() - 0.5) * 0.5,
-            vy: (Math.random() - 0.5) * 0.5,
-            size: Math.random() * 2
-        });
+    function resize() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width;
+        canvas.height = height;
+        initParticles();
     }
-}
 
-let animating = true;
-
-function draw() {
-    if (!animating) return;
-    ctx.clearRect(0, 0, width, height);
-    ctx.fillStyle = '#38bdf8';
-    ctx.strokeStyle = 'rgba(56, 189, 248, 0.15)';
-
-    for (let i = 0; i < particles.length; i++) {
-        let p = particles[i];
-        p.x += p.vx;
-        p.y += p.vy;
-
-        if (p.x < 0 || p.x > width) p.vx *= -1;
-        if (p.y < 0 || p.y > height) p.vy *= -1;
-
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fill();
-
-        for (let j = i + 1; j < particles.length; j++) {
-            let p2 = particles[j];
-            let dx = p.x - p2.x;
-            let dy = p.y - p2.y;
-            let dist = Math.sqrt(dx * dx + dy * dy);
-
-            if (dist < 120) {
-                ctx.lineWidth = 1 - (dist / 120);
-                ctx.beginPath();
-                ctx.moveTo(p.x, p.y);
-                ctx.lineTo(p2.x, p2.y);
-                ctx.stroke();
-            }
+    function initParticles() {
+        particles = [];
+        const count = Math.min(50, Math.floor(width / 30));
+        for (let i = 0; i < count; i++) {
+            particles.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                vx: (Math.random() - 0.5) * 0.5,
+                vy: (Math.random() - 0.5) * 0.5,
+                size: Math.random() * 2
+            });
         }
     }
-    requestAnimationFrame(draw);
-}
 
-// Pause animation when tab is not visible
-document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-        animating = false;
-    } else if (!prefersReducedMotion) {
-        animating = true;
-        draw();
+    let animating = true;
+
+    function draw() {
+        if (!animating) return;
+        ctx.clearRect(0, 0, width, height);
+        ctx.fillStyle = '#38bdf8';
+        ctx.strokeStyle = 'rgba(56, 189, 248, 0.15)';
+
+        for (let i = 0; i < particles.length; i++) {
+            let p = particles[i];
+            p.x += p.vx;
+            p.y += p.vy;
+
+            if (p.x < 0 || p.x > width) p.vx *= -1;
+            if (p.y < 0 || p.y > height) p.vy *= -1;
+
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            ctx.fill();
+
+            for (let j = i + 1; j < particles.length; j++) {
+                let p2 = particles[j];
+                let dx = p.x - p2.x;
+                let dy = p.y - p2.y;
+                let dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < 120) {
+                    ctx.lineWidth = 1 - (dist / 120);
+                    ctx.beginPath();
+                    ctx.moveTo(p.x, p.y);
+                    ctx.lineTo(p2.x, p2.y);
+                    ctx.stroke();
+                }
+            }
+        }
+        requestAnimationFrame(draw);
     }
-});
 
-let resizeTimeout;
-window.addEventListener('resize', () => {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(resize, 200);
-}, { passive: true });
+    // Pause animation when tab is not visible
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            animating = false;
+        } else if (!prefersReducedMotion) {
+            animating = true;
+            draw();
+        }
+    });
 
-if (!prefersReducedMotion) {
-    requestAnimationFrame(() => {
-        resize();
-        draw();
-    });
-} else {
-    // Draw a single static frame for reduced-motion users
-    requestAnimationFrame(() => {
-        resize();
-        animating = true;
-        draw();
-        animating = false;
-    });
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(resize, 200);
+    }, { passive: true });
+
+    if (!prefersReducedMotion) {
+        requestAnimationFrame(() => {
+            resize();
+            draw();
+        });
+    } else {
+        // Draw a single static frame for reduced-motion users
+        requestAnimationFrame(() => {
+            resize();
+            animating = true;
+            draw();
+            animating = false;
+        });
+    }
 }
 
 // Carousel Script — con dots, pausa al hover y navegacion automatica cada 5s
